@@ -205,6 +205,7 @@
 @section('scripts')
     <script>
         $(document).ready(function() {
+            $('#parent_id_field').hide();
             $('#type').change(function() {
                 if ($(this).val() == '1') {
                     $('#parent_id_field').show();

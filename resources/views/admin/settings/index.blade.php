@@ -779,7 +779,23 @@
 
 
 
+                            <div class="form-group">
 
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <lable>Show/Hide - Points</lable>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="custom-control custom-checkbox">
+                                            <input {{($settings->points ?'checked':'')}} name="points" type="checkbox" class="custom-control-input" id="customCheck0021points">
+                                            <label class="custom-control-label" for="customCheck0021points"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                @error('points')
+                                <div class="text-danger">{{ $errors->first('points') }}</div>
+                                @enderror
+                            </div>
 
 
 

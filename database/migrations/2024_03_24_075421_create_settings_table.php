@@ -50,6 +50,7 @@ return new class extends Migration
             $table->string('offers')->nullable();
             $table->string('orders')->nullable();
             $table->string('tags')->nullable();
+            $table->string('points')->nullable();
 
             $table->timestamps();
         });

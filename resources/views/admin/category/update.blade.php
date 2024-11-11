@@ -65,7 +65,7 @@
                             @enderror
                         </div>
 
-                        <div class="form-group" id="parent_id_field">
+                        <div class="form-group" id="parent_id_field" style="{{( $cat->type == 0 ) ? 'display:none':''}}">
                             <label>{{ __('main.select_category') }}</label>
                             <select name="parent_id" class="form-control">
                                 <option disabled>{{ __('main.select_category') }}</option>
@@ -177,6 +177,29 @@
                             @endforeach
                         </div>
                         <br>
+
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <label>{{ __('main.star') }}</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="custom-control custom-checkbox">
+                                        <input name="star" type="checkbox" class="custom-control-input" id="customCheck2"
+                                            {{ $cat->star == 'on' ? 'checked' : '' }}>
+                                        <label class="custom-control-label" for="customCheck2"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            @error('star')
+                            <div class="text-danger">{{ $errors->first('star') }}</div>
+                            @enderror
+                        </div>
+
+
+
+
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
@@ -189,19 +212,17 @@
     </section>
 @endsection
 
-@push('js')
+@section('scripts')
     <script>
-        $(document).ready(function () {
-            $('select[name="type"]').on('change', function () {
+        $(document).ready(function() {
+
+            $('#type').change(function() {
                 if ($(this).val() == '1') {
                     $('#parent_id_field').show();
                 } else {
                     $('#parent_id_field').hide();
                 }
             });
-
-            // Trigger change event on page load to hide/show parent_id_field accordingly
-            $('select[name="type"]').trigger('change');
         });
     </script>
-@endpush
+@endsection

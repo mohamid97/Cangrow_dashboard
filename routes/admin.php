@@ -36,6 +36,7 @@ use App\Http\Controllers\Admin\TagsController;
 use App\Models\Admin\Offers;
 use App\Models\Admin\Payment;
 use Illuminate\Routing\RouteRegistrar;
+use App\Http\Controllers\Admin\PointsController;
 
 Route::get('/mig' , function (){
 
@@ -94,6 +95,15 @@ Route::middleware(['checkIfAdmin' , 'DashboardLang'])->prefix('admin')->group(fu
             Route::get('/delete/{id}' , [FeaturedController::class , 'delete'])->name('admin.featured.delete');
             Route::post('store' , [ FeaturedController::class, 'store'])->name('admin.featured.store');
         });
+
+
+
+    // start points
+    Route::prefix('points')->group(function(){
+        Route::get('index' , [PointsController::class , 'get'])->name('admin.points.index');
+        Route::post('/update/points_price' ,[PointsController::class , 'update_price'])->name('admin.points_pirce.update');
+    });
+
 
 
 

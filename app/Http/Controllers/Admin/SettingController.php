@@ -64,6 +64,7 @@ class SettingController extends Controller
                 $setting->offers   = $request->offers;
                 $setting->orders   = $request->orders;
                 $setting->tags     = $request->tags;
+                $setting->points     = $request->points;
                foreach ($this->files as $file){
                   $image_name = $this->uploadFile($request , $file);
                    if($image_name){

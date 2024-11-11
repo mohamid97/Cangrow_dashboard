@@ -166,6 +166,11 @@ Route::middleware('checkLang')->group(function (){
         Route::post('store' , [OrderController::class , 'store_guest']);
     });
 
+    Route::prefix('descriptions')->group(function(){
+
+        Route::get('/get' , [\App\Http\Controllers\Api\DescriptionController::class , 'get']);
+    });
+
 
     // authincation with sanctum
 

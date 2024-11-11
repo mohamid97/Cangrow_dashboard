@@ -36,7 +36,7 @@
                             <th>{{ __('main.phone') }}</th> <!-- Translation key for "Phone" -->
                             <th>{{ __('main.email') }}</th> <!-- Translation key for "Email" -->
                             <th>{{ __('main.subject') }}</th> <!-- Translation key for "Subject" -->
-                            <th>{{ __('main.created_at') }}</th> <!-- Translation key for "Created At" -->
+                            <th>{{ __('main.date') }}</th> <!-- Translation key for "Created At" -->
                             <th>{{ __('main.action') }}</th> <!-- Translation key for "Action" -->
                         </tr>
                         </thead>
