@@ -89,7 +89,7 @@ class HomeController extends Controller
                     })
                     ->toArray();
 
-
+                    //check
                     $usersWithOrders = User::has('orders')->where('type' , '!=' , 'admin')->count();
                     $usersWithoutOrders = User::doesntHave('orders')->where('type' , '!=' , 'admin')->count();
 
@@ -110,7 +110,6 @@ class HomeController extends Controller
                     for ($i = 1; $i <= $currentMonth; $i++) {
                         $salesData[] = $monthlySales[$i] ?? 0;
                     }
-
         $totalPoints = Points::sum('points'); // Sums up all points
 
         return view('admin.home' , [
@@ -138,7 +137,6 @@ class HomeController extends Controller
            'currentMonth'=>$currentMonth,
            'lowest_stock'=> $lowest_stock,
             'totalPoints'=>$totalPoints
-
         ]);
 
     }
