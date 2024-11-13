@@ -177,8 +177,8 @@
                     <div class="info-box mb-3">
                         <span class="info-box-icon bg-info elevation-1"><i class="fas fa-shopping-cart"></i></span>
                         <div class="info-box-content">
-                            <span class="info-box-text">{{ __('main.offers') }}</span>
-                            <span class="info-box-number">{{ $offers }}</span>
+                            <span class="info-box-text">{{ __('main.points') }}</span>
+                            <span class="info-box-number">{{ $totalPoints }}</span>
                         </div>
                     </div>
                 </div>

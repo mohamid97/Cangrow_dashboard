@@ -4,6 +4,7 @@ namespace App\Models\Admin;
 
 use App\Http\Resources\Admin\CategoryResource;
 use App\Models\Front\CardItem;
+use App\Models\Front\Order;
 use App\Models\ProductFile;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -41,4 +42,12 @@ class Product extends Model implements TranslatableContract
     {
         return $this->belongsToMany(Tags::class);
     }
+
+    // Define orders relationship
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class, 'order_items', 'product_id', 'order_id');
+    }
+
+
 }

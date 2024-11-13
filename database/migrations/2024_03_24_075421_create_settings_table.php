@@ -51,6 +51,7 @@ return new class extends Migration
             $table->string('orders')->nullable();
             $table->string('tags')->nullable();
             $table->string('points')->nullable();
+            $table->string('sales_tool')->nullable();
 
             $table->timestamps();
         });

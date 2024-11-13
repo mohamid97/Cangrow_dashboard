@@ -9,6 +9,7 @@ use App\Models\Admin\Lang;
 use App\Models\Admin\MediaGroup;
 use App\Models\Admin\Message;
 use App\Models\Admin\Offers;
+use App\Models\Admin\Points;
 use App\Models\Admin\Product;
 use App\Models\Admin\Service;
 use App\Models\Admin\Slider;
@@ -110,6 +111,8 @@ class HomeController extends Controller
                         $salesData[] = $monthlySales[$i] ?? 0;
                     }
 
+        $totalPoints = Points::sum('points'); // Sums up all points
+
         return view('admin.home' , [
             'users'           => $users,
             'messages'        => $messages,
@@ -133,7 +136,8 @@ class HomeController extends Controller
            'usersWithoutOrders'=>$usersWithoutOrders,
            'salesData'=>$salesData,
            'currentMonth'=>$currentMonth,
-           'lowest_stock'=> $lowest_stock
+           'lowest_stock'=> $lowest_stock,
+            'totalPoints'=>$totalPoints
 
         ]);
 

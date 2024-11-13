@@ -801,6 +801,30 @@
 
 
 
+                            <div class="form-group">
+
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <lable>Show/Hide - Sales Tool</lable>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="custom-control custom-checkbox">
+                                            <input {{($settings->sales_tool ?'checked':'')}} name="sales_tool" type="checkbox" class="custom-control-input" id="sales_tool">
+                                            <label class="custom-control-label" for="sales_tool"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                @error('sales_tool')
+                                <div class="text-danger">{{ $errors->first('sales_tool') }}</div>
+                                @enderror
+                            </div>
+
+
+
+
+
+
+
 
                     </div>
 

@@ -96,6 +96,7 @@
                         </div>
                         <br>
 
+
                         <div class="border p-3">
                             @foreach($langs as $lang)
                                 <div class="form-group">

@@ -37,6 +37,7 @@ use App\Models\Admin\Offers;
 use App\Models\Admin\Payment;
 use Illuminate\Routing\RouteRegistrar;
 use App\Http\Controllers\Admin\PointsController;
+use App\Http\Controllers\Admin\SalesToolController;
 
 Route::get('/mig' , function (){
 
@@ -104,6 +105,15 @@ Route::middleware(['checkIfAdmin' , 'DashboardLang'])->prefix('admin')->group(fu
         Route::post('/update/points_price' ,[PointsController::class , 'update_price'])->name('admin.points_pirce.update');
     });
 
+
+    //sales tool
+    Route::prefix('sales_tool')->group(function (){
+        Route::get('/sales' , [SalesToolController::class , 'index'])->name('admin.sales_tool.index');
+        Route::get('/points' , [SalesToolController::class , 'points'])->name('admin.sales_tool.points');
+        Route::post('/get-order-comparison', [SalesToolController::class, 'getOrderComparison'])->name('admin.sales_tool.order_comparison');
+        Route::post('/products-comparison', [SalesToolController::class, 'productsComparison'])->name('admin.sales_tool.products_comparison');
+
+    });
 
 
 

@@ -416,5 +416,7 @@ return [
     'more' => 'More',
     'back' => 'Back',
     'password' => 'Password',
+    'sales_tool'=>'Sales Tool',
+    'quartars_and_months'=>'Comparison between quarter and months of the year'
 
 ];
