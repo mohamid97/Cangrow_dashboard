@@ -15,7 +15,9 @@ class ProductsProps extends JsonResource
     public function toArray($request)
     {
 
-        
+        if(!isset($this->translations)){
+            return null;
+        }
         // Get the first translation, if it exists
         $firstTranslation = $this->translations->where('locale' , app()->getLocale())->first();
 

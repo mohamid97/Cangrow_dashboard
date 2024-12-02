@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Admin;
 
+use App\Models\Admin\Lang;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ServicesResource extends JsonResource
@@ -20,6 +21,17 @@ class ServicesResource extends JsonResource
                 'image_link'=>asset('/uploads/images/service/')
             ];
         });
+
+
+        $langs = Lang::all();
+        $slug =[];
+        foreach ($langs as $lang){
+            if(isset($this->translate($lang->code)->slug)){
+                $slug[$lang->code] = $this->translate($lang->code)->slug;
+            }
+        }
+
+
         return [
             'name'      =>$this->name,
             'des'       =>$this->des,
@@ -29,7 +41,7 @@ class ServicesResource extends JsonResource
             'alt_image'=>$this->alt_image,
             'title_image'=>$this->title_image,
             'small_des'=>$this->small_des,
-            'slug'=>$this->slug,
+            'slug'=>$slug,
             'photos'    => $galleryData,
 
         ];

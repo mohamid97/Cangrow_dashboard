@@ -38,6 +38,7 @@ use App\Models\Admin\Payment;
 use Illuminate\Routing\RouteRegistrar;
 use App\Http\Controllers\Admin\PointsController;
 use App\Http\Controllers\Admin\SalesToolController;
+use App\Http\Controllers\Admin\BackupController;
 
 Route::get('/mig' , function (){
 
@@ -74,6 +75,18 @@ Route::middleware(['checkIfAdmin' , 'DashboardLang'])->prefix('admin')->group(fu
         \Illuminate\Support\Facades\Session::put('locale', $lang);
         return redirect()->back();
     })->name('change_direction');
+
+
+    // backup
+    Route::prefix('backup')->group(function (){
+
+        Route::get('/backup', [BackupController::class, 'index'])->name('admin.backup.index');
+
+        Route::get('/backup/database', [BackupController::class, 'backupDatabase'])->name('admin.backup.database');
+
+        Route::get('/backup/folder', [BackupController::class, 'backupFolder'])->name('admin.backup.folder');
+
+    });
 
 
     Route::get('/' , [HomeController::class , 'index'])->name('admin.index');

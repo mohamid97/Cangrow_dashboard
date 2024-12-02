@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Admin;
 
+use App\Models\Admin\Lang;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class CmsDetailsResource extends JsonResource
@@ -14,9 +15,20 @@ class CmsDetailsResource extends JsonResource
      */
     public function toArray($request)
     {
+
+
+        $langs = Lang::all();
+        $slug =[];
+        foreach ($langs as $lang){
+            if(isset($this->translate($lang->code)->slug)){
+                $slug[$lang->code] = $this->translate($lang->code)->slug;
+            }
+        }
+
+
         return[
             'name'=> $this->name,
-            'slug'=> $this->slug,
+            'slug'=> $slug,
             'des' => $this->des,
             'meta_des'=>$this->meta_des,
             'meta_title'=>$this->meta_title,

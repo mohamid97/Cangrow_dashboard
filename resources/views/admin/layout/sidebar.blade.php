@@ -773,6 +773,29 @@
                         </ul>
                     </li>
 
+
+
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-language nav-icon"></i>
+                            <p>
+                                {{ __('main.backup') }}
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('admin.backup.index') }}" class="nav-link">
+                                    <i class="fa fa-language nav-icon"></i>
+                                    <p>{{ __('main.backup') }}</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
                             <i class="fa fa-language nav-icon"></i>
