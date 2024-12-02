@@ -23,7 +23,7 @@ class ProductDetailsResource extends JsonResource
             'meta_title'=>$this->meta_title,
             'meta_des'  =>$this->meta_des,
             'slug'      =>$this->slug,
-            'sku'=>$this->sku,
+            'sku'=> $this->sku,
             'old_price'=>$this->old_price,
             'discount'=>$this->discount,
             'gallery'=>ProductGallerResource::collection($this->gallery),
