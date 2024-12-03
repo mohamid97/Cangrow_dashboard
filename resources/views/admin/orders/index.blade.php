@@ -81,6 +81,7 @@
                                 <th>#</th>
                                 <th>@lang('main.first_name')</th>
                                 <th>@lang('main.last_name')</th>
+                                <th>@lang('main.phone')</th>
                                 <th>@lang('main.quantity')</th>
                                 <th>@lang('main.status')</th>
                                 <th>@lang('main.payment_status')</th>
@@ -92,8 +93,9 @@
                             @forelse($orders as $index => $order)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
-                                    <td>{{ optional($order->user)->first_name }}</td>
-                                    <td>{{ optional($order->user)->last_name }}</td>
+                                    <td>{{  $order->first_name }}</td>
+                                    <td>{{  $order->last_name }}</td>
+                                    <td>{{  $order->phone }}</td>
                                     <td>{{ $order->items->sum('quantity') }}</td>
                                     <td>
                                         @if ($order->status == 'pending')
