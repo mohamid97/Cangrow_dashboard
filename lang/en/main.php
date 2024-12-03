@@ -417,6 +417,10 @@ return [
     'back' => 'Back',
     'password' => 'Password',
     'sales_tool'=>'Sales Tool',
-    'quartars_and_months'=>'Comparison between quarter and months of the year'
+    'quartars_and_months'=>'Comparison between quarter and months of the year',
+    'backup'=>'Backup',
+    'backup_database' =>'Database',
+    'backup_file' =>'Media',
+    'database'=>'Database',
 
 ];

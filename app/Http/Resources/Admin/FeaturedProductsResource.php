@@ -22,7 +22,7 @@ class FeaturedProductsResource extends JsonResource
             'category' =>isset($this->category_id) ? new CategoryDetailsResource( Category::find($this->category)): null,
             'name'        =>$this->product->name,
             'image_path'  =>asset('uploads/images/gallery'),
-            'stock'       =>$this->stock,
+            'stock'       =>$this->product->stock,
             'price'       =>$this->product->price,
             'discount'    =>$this->product->discount,
             'old_price'   =>$this->product->old_price,

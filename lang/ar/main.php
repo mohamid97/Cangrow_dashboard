@@ -415,6 +415,10 @@ return [
     'more' => 'المزيد',
     'password' => 'كلمة المرور',
     'sales_tool'=>'أداة المبيعات',
-    'quartars_and_months'=>'مقارنه بين ربع واشهر السنه'
+    'quartars_and_months'=>'مقارنه بين ربع واشهر السنه',
+    'backup'=>'النسخ الاحتياطي',
+    'backup_database' =>'قواعد البيانات',
+    'backup_file' =>'الوسائط',
+    'database'=>'فواعد البيانات',
 
 ];
