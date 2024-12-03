@@ -41,6 +41,8 @@ class ServiceDetailsResource extends JsonResource
             'title_image'=>$this->title_image,
             'small_des'=>$this->small_des,
             'photos'    => $galleryData,
+            'created_at'=>$this->created_at,
+            'updated_at'=>$this->updated_at
 
         ];
     }

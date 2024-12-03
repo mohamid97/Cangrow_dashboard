@@ -15,7 +15,7 @@ class CategoryDetailsResource extends JsonResource
     public function toArray($request)
     {
         return [
-          
+
             'id'=>$this->id,
             'name'=>$this->name,
             'des'=>$this->des,
@@ -28,8 +28,10 @@ class CategoryDetailsResource extends JsonResource
             'small_des' => $this->small_des,
             'meta_title' => $this->meta_title,
             'meta_des'   => $this->meta_des,
-            'slug'=>$this->slug
-            
+            'slug'=>$this->slug,
+            'created_at'=>$this->created_at,
+            'updated_at'=>$this->updated_at
+
         ];
     }
 }

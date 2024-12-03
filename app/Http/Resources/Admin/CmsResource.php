@@ -34,7 +34,9 @@ class CmsResource extends JsonResource
             'alt_image' => $this->alt_image,
             'title_image'=>$this->title_image,
             'main_image' => $this->image,
-            'image_path' => asset('uploads/images/cms')
+            'image_path' => asset('uploads/images/cms'),
+            'created_at'=>$this->created_at,
+            'updated_at'=>$this->updated_at
         ];
 
 

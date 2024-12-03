@@ -42,7 +42,9 @@ class ProductDetailsResource extends JsonResource
             'props' => $this->props ? ProductsProps::collection($this->props) : null,
             'stock'=>$this->stock,
             'file_path'=>asset('uploads/images/products'),
-            'video'=> $this->video
+            'video'=> $this->video,
+            'created_at'=>$this->created_at,
+            'updated_at'=>$this->updated_at
 
         ];
     }
