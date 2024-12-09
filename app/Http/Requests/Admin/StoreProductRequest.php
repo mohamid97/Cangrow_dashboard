@@ -31,9 +31,9 @@ class StoreProductRequest extends FormRequest
             'meta_des.*'=>'nullable|max:65535',
             'category'=>'nullable|integer|exists:categories,id',
             'discount'=>'nullable|numeric|min:0',
-            'price' => 'required|numeric|min:0',
+            'price' => 'nullable|numeric|min:0',
             'old_price' => 'nullable|numeric|min:0',
-            //'sku'=>'nullable|max:255|unique:products,sku',
+            'sku'=>'nullable|max:255|unique:products,sku',
             'video'=>'nullable|url'
 
 

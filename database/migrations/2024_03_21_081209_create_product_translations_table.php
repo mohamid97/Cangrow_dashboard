@@ -18,9 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('product_id');
             $table->string('locale')->index();
             $table->string('name');
-            $table->longText('des');
-            $table->longText('meta_title');
-            $table->longText('meta_des');
+            $table->longText('des')->nullable();
+            $table->longText('meta_title')->nullable();
+            $table->longText('meta_des')->nullable();
             $table->string('slug');
             $table->unique(['product_id', 'locale']);
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');

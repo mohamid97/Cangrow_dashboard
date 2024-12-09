@@ -90,7 +90,8 @@ class ProductController extends Controller
             $product->save();
             DB::commit();
             Alert::success('Success', 'Product Added Successfully !');
-            return redirect()->route('admin.products.index');
+            return redirect()->back();
+
         }catch(\Exception $e){
             dd($e->getLine() , $e->getMessage());
             DB::rollBack();
@@ -132,7 +133,8 @@ class ProductController extends Controller
             $product->save();
             DB::commit();
             Alert::success('Success', 'Product Updated Successfully !');
-            return redirect()->route('admin.products.index');
+            return redirect()->back();
+
         }catch (\Exception $e){
             DB::rollBack();
             Alert::error('error', 'Tell The Programmer To solve Error');
@@ -165,28 +167,39 @@ class ProductController extends Controller
         return view('admin.products.Gallary' , ['product'=>$product]);
     }
 
-    public function store_gallery(Request $request , $id){
 
+    public function store_gallery(Request $request, $id)
+    {
         $product = Product::findOrFail($id);
+
+        // Validate multiple images
         $request->validate([
-            'photo'=>'nullable|image|mimes:jpeg,png,jpg,gif,webp'
+            'photos.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048', // Validate each photo
         ]);
 
-        if($request->has('photo')){
-            $image_name = $request->photo->getClientOriginalName();
-            $request->photo->move(public_path('uploads/images/gallery'), $image_name);
-            $gallery = new Gallary();
-            $gallery->product_id = $product->id;
-            $gallery->photo = $image_name;
-            $gallery->save();
-            Alert::success('Success', 'Product Gallery Added Successfully !');
-            return redirect()->route('admin.products.index');
+        // Check if the request has files
+        if ($request->has('photos')) {
+            foreach ($request->file('photos') as $photo) {
+                $image_name = time() . '_' . $photo->getClientOriginalName();
+                $photo->move(public_path('uploads/images/gallery'), $image_name);
+
+                // Save each image in the gallery table
+                $gallery = new Gallary();
+                $gallery->product_id = $product->id;
+                $gallery->photo = $image_name;
+                $gallery->save();
+            }
+
+            Alert::success('Success', 'Product Gallery Added Successfully!');
+            return redirect()->back();
         }
-        Alert::error('error', 'Tell The Programmer To solve Error');
-        return redirect()->route('admin.products.index');
 
-
+         Alert::error('Error', 'No files uploaded. Please try again.');
+         return redirect()->back();
     }
+
+
+
 
     public function delete_gallery($id){
 
@@ -199,7 +212,8 @@ class ProductController extends Controller
             $gallery->delete();
             DB::commit();
             Alert::success('Success', 'Product Gallery Added Successfully !');
-            return redirect()->route('admin.products.index');
+            return redirect()->back();
+
         }catch (\Exception $e){
             DB::rollBack();
             Alert::error('error', 'Tell The Programmer To solve Error');
