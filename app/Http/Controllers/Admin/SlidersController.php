@@ -34,9 +34,9 @@ class SlidersController extends Controller
                 $q->where('name', 'like', '%' . $searchTerm . '%');
             });
         }
-    
+
         $sliders = $query->paginate(10);
-    
+
         return view('admin.sliders.index', [
             'sliders' => $sliders,
             'langs' => $this->langs,
@@ -74,10 +74,10 @@ class SlidersController extends Controller
             $slider->save();
             DB::commit();
             Alert::success('Success', 'Your slider is saved !');
-            return redirect()->route('admin.sliders.index');
+            return redirect()->back();
 
         } catch (\Exception $e) {
-            dd($e->getLine() , $e->getMessage());
+
             // If an exception occurs, rollback the transaction
             DB::rollBack();
             Alert::error('error', 'Tell The Programmer To solve Error');
@@ -106,9 +106,6 @@ class SlidersController extends Controller
                 }
             }
 
-    
-             
-
             DB::beginTransaction();
             foreach ($this->langs as $lang) {
                 $slider->{'name:'.$lang->code}       = $request->name[$lang->code];
@@ -122,11 +119,11 @@ class SlidersController extends Controller
 
             $slider->arrange = $request->arrange;
             $slider->link    = $request->link;
-            
+
             $slider->save();
             DB::commit();
             Alert::success('success', 'Slider Updated Successfully !');
-            return redirect()->route('admin.sliders.index');
+            return redirect()->back();
 
         }catch (\Exception $e){
             // If an exception occurs, rollback the transaction
@@ -143,7 +140,7 @@ class SlidersController extends Controller
         $slider = Slider::findOrFail($id);
         $slider->forceDelete();
         Alert::success('success', 'Slider Deleted Successfully !');
-        return redirect()->route('admin.sliders.index');
+        return redirect()->back();
     }
 
     public function soft_delete($id)
@@ -151,7 +148,7 @@ class SlidersController extends Controller
         $slider = Slider::findOrFail($id);
         $slider->delete();
         Alert::success('success', 'Slider Soft Deleted Successfully !');
-        return redirect()->route('admin.sliders.index');
+        return redirect()->back();
 
     }
 
@@ -160,7 +157,7 @@ class SlidersController extends Controller
         $slider = Slider::withTrashed()->findOrFail($id);
         $slider->restore();
         Alert::success('success', 'Slider Restored Successfully !');
-        return redirect()->route('admin.sliders.index');
+        return redirect()->back();
 
     }
 
@@ -197,7 +194,7 @@ class SlidersController extends Controller
             DB::commit();
 
             Alert::success('success', 'Slider Setting Updated Successfully !');
-            return redirect()->route('admin.sliders.index');
+            return redirect()->back();
 
         }catch (\Exception $e){
             dd($e->getLine() , $e->getMessage());

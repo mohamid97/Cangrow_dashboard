@@ -23,15 +23,15 @@ class Sliders extends FormRequest
      */
     public function rules()
     {
-        
+
         return [
             'image'         =>'required|image|mimes:jpeg,png,jpg,gif',
-            'name.*'        =>'required|max:255',
+            'name.*'        =>'nullable|max:255',
             'small_des.*'   =>'nullable|max:255',
             'des.*'         =>'nullable|max:5000',
-            'arrange'       =>'required|integer',
-            'title_image.*' =>'required|string|max:255',
-            'alt_image.*'   =>'required|string|max:255',
+            'arrange'       =>'nullable|integer',
+            'title_image.*' =>'nullable|string|max:255',
+            'alt_image.*'   =>'nullable|string|max:255',
             'link'          =>'nullable|string'
 
 

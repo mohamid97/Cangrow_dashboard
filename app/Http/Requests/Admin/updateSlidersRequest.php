@@ -23,10 +23,10 @@ class updateSlidersRequest extends FormRequest
      */
     public function rules()
     {
-       
+
         return [
             'image'=>'nullable|image|mimes:jpeg,png,jpg,gif',
-            'name.*'=>'required|max:255',
+            'name.*'=>'nullable|max:255',
             'small_des.*'=>'nullable|max:255',
             'des.*'=>'nullable|max:5000',
             'arrange'=>'nullable|integer',

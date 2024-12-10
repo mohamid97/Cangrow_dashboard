@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('locale')->index();
             $table->unique(['service_id', 'locale']);
             $table->string('name');
-            $table->longText('des')->nullable();
             $table->string('slug');
+            $table->longText('des')->nullable();
             $table->text('meta_des')->nullable();
             $table->text('meta_title')->nullable();
             $table->string('alt_image')->nullable();

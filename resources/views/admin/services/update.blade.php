@@ -80,6 +80,45 @@
                             </div>
                         @endforeach
 
+
+
+                        @foreach($langs as $index => $lang)
+                            <div class="form-group">
+                                <label for="meta_des">{{ __('main.meta_des') }} ({{$lang->name}})</label>
+                                <textarea name="meta_des[{{$lang->code}}]" class="ckeditor">
+                                @if (isset($service->translate($lang->code)->meta_des))
+                                        {!! $service->translate($lang->code)->meta_des !!}
+                                 @endif
+                            </textarea>
+                                @error('des.' . $lang->code)
+                                <div class="text-danger">{{ $errors->first('meta_des.' . $lang->code) }}</div>
+                                @enderror
+                            </div>
+                        @endforeach
+
+
+
+                        @foreach($langs as $index => $lang)
+                            <div class="form-group">
+                                <label for="meta_title">{{ __('main.meta_title') }} ({{$lang->name}})</label>
+                                <textarea name="meta_title[{{$lang->code}}]" class="ckeditor">
+                                @if (isset($service->translate($lang->code)->meta_title))
+                                        {!! $service->translate($lang->code)->meta_title !!}
+                                    @endif
+                            </textarea>
+                                @error('meta_title.' . $lang->code)
+                                <div class="text-danger">{{ $errors->first('meta_title.' . $lang->code) }}</div>
+                                @enderror
+                            </div>
+                        @endforeach
+
+
+
+
+
+
+
+
                     <!-- Repeat similar changes for meta_title and meta_des -->
 
                         <div class="form-group">

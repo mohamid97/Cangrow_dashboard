@@ -80,7 +80,7 @@ class ServiceController extends Controller
             $service->save();
             DB::commit();
             Alert::success('Success', 'Created Successfully ! !');
-            return redirect()->route('admin.services.index');
+            return redirect()->back();
         }catch (\Exception $e){
             dd($e->getMessage() , $e->getLine());
             // If an exception occurs, rollback the transaction
@@ -98,7 +98,7 @@ class ServiceController extends Controller
         $service = Service::findOrFail($id);
         $service->forceDelete();
         Alert::success('success', 'Service Deleted Successfully !');
-        return redirect()->route('admin.services.index');
+        return redirect()->back();
     }
 
     // soft delete
@@ -107,7 +107,7 @@ class ServiceController extends Controller
         $service = Service::findOrFail($id);
         $service->delete();
         Alert::success('success', 'ServiceSoft Deleted Successfully !');
-        return redirect()->route('admin.services.index');
+        return redirect()->back();
 
     }
 
@@ -117,7 +117,7 @@ class ServiceController extends Controller
         $service = Service::withTrashed()->findOrFail($id);
         $service->restore();
         Alert::success('success', 'Service Restored Successfully !');
-        return redirect()->route('admin.services.index');
+        return redirect()->back();
 
     }
 
@@ -148,6 +148,7 @@ class ServiceController extends Controller
 
             $service->star = $request->star;
             $service->category_id = ($request->category != 'null' ) ? $request->category : null;
+
             $service->price = $request->price;
             if(isset($image_name) && $image_name != null){
                  $service->image = $image_name;
@@ -165,9 +166,10 @@ class ServiceController extends Controller
                 $service->{'title_image:'.$lang->code}  = $request->title_image[$lang->code];
             }
             $service->save();
+
             DB::commit();
             Alert::success('Success', 'Updated Successfully ! !');
-            return redirect()->route('admin.services.index');
+            return redirect()->back();
 
         }catch (\Exception $e){
             dd($e->getMessage() , $e->getLine());
@@ -195,22 +197,33 @@ class ServiceController extends Controller
 
         $service = Service::findOrFail($id);
         $request->validate([
-            'photo'=>'nullable|image|mimes:jpeg,png,jpg,gif,webp'
+            'photo.*' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
-        if($request->has('photo')){
-            $image_name = time() . '.' .$request->photo->getClientOriginalName();
-            $request->photo->move(public_path('uploads/images/service'), $image_name);
-            $gallery = new ServicesGallary();
-            $gallery->service_id = $service->id;
-            $gallery->photo = $image_name;
-            $gallery->save();
-            Alert::success('Success', 'Service Gallery Added Successfully !');
-            return redirect()->route('admin.services.index');
+        if ($request->hasFile('photo')) {
+            foreach ($request->file('photo') as $file) {
+                // Generate a unique name for each image
+                $image_name = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+
+                // Move the file to the upload directory
+                $file->move(public_path('uploads/images/service'), $image_name);
+
+                // Save each image to the database
+                $gallery = new ServicesGallary();
+                $gallery->service_id = $service->id;
+                $gallery->photo = $image_name;
+                $gallery->save();
+            }
+
+            // Success message
+            Alert::success('Success', 'Service Gallery Added Successfully!');
+            return redirect()->back();
         }
-        Alert::error('error', 'Tell The Programmer To solve Error');
+
+        // Error message if no images are uploaded
+        Alert::error('Error', 'No images uploaded. Please try again.');
         return redirect()->route('admin.services.index');
-    }
+    } // end store gallery
 
     // delete gallery image one by one
     public function delete_gallery($id){
@@ -224,7 +237,7 @@ class ServiceController extends Controller
             $gallery->delete();
             DB::commit();
             Alert::success('Success', 'service Gallery Added Successfully !');
-            return redirect()->route('admin.services.index');
+            return redirect()->back();
         }catch (\Exception $e){
             DB::rollBack();
             Alert::error('error', 'Tell The Programmer To solve Error');

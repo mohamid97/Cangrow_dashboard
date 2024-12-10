@@ -26,7 +26,7 @@
                         <label for="image">{{ __('main.photo') }}</label> <!-- Use translation for "Photo" -->
                         <div class="input-group">
                             <div class="custom-file">
-                                <input name="photo" type="file" class="custom-file-input" id="image">
+                                <input name="photo[]" type="file" class="custom-file-input" id="image" multiple>
                                 <label class="custom-file-label" for="image">{{ __('main.choose_photo') }}</label> <!-- Use translation for "Choose Photo" -->
                             </div>
                             <div class="input-group-append">
