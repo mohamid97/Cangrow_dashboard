@@ -23,13 +23,15 @@ class AboutController extends Controller
         $about = About::first();
         return view('admin.about.index' ,['about'=> $about , 'langs' => $this->langs ]);
     }
-    public function update(AboutRequest $request , $id)
+    public function update(AboutRequest $request)
     {
+
+       // dd($request->phone);
         // start try
         try{
             // strart try transcation
             DB::beginTransaction();
-            $about = About::first();
+            $about = About::first() ?? new About();
             if($request->has('photo')){
                 $image_name = $request->photo->getClientOriginalName();
                 $request->photo->move(public_path('uploads/images/about'), $image_name);
@@ -54,7 +56,7 @@ class AboutController extends Controller
             // commit transaction
             DB::commit();
             Alert::success('Success', 'Updated Successfully ! !');
-            return redirect()->route('admin.about.index');
+            return redirect()->back();
 
         }catch(\Exception $e){
 

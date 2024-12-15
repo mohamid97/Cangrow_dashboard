@@ -21,7 +21,7 @@ return new class extends Migration
             $table->longText('des')->nullable();
             $table->string('name');
             $table->longText('meta_title')->nullable();
-            $table->longText('meta_des');
+            $table->longText('meta_des')->nullable();
             $table->string('alt_image')->nullable();
             $table->string('title_image')->nullable();
             $table->foreign('about_id')->references('id')->on('abouts')->onDelete('cascade');

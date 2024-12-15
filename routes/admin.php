@@ -202,14 +202,14 @@ Route::middleware(['checkIfAdmin' , 'DashboardLang'])->prefix('admin')->group(fu
     // start about us
     Route::prefix('about')->group(function (){
        Route::get('/' , [AboutController::class , 'index'])->name('admin.about.index');
-       Route::post('/update/{id}' , [AboutController::class , 'update'])->name('admin.about.update');
+       Route::post('/update' , [AboutController::class , 'update'])->name('admin.about.update');
     });
 
 
     // start contact us
     Route::prefix('contact-us')->group(function (){
         Route::get('/' , [ContactUsController::class , 'index'])->name('admin.contact.index');
-        Route::post('/update/{id}' , [ContactUsController::class , 'update'])->name('admin.contact.update');
+        Route::post('/update' , [ContactUsController::class , 'update'])->name('admin.contact.update');
     });
 
 

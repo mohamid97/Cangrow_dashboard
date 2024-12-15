@@ -26,7 +26,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form role="form" method="post" action="{{ route('admin.contact.update', ['id'=> $contactus->id]) }}" enctype="multipart/form-data">
+                <form role="form" method="post" action="{{ route('admin.contact.update') }}" enctype="multipart/form-data">
                 @csrf <!-- Blade directive for CSRF token -->
                     <div class="card-body">
 
@@ -35,7 +35,7 @@
                             @foreach($langs as $lang)
                                 <div class="form-group">
                                     <label for="name">{{ __('main.name') }} ({{ $lang->name }})</label> <!-- Translation for Name -->
-                                    <input type="text" name="name[{{$lang->code}}]" class="form-control" id="name" placeholder="{{ __('main.enter_name') }}" value="{{ isset($contactus->translate($lang->code)->name) ? $contactus->translate($lang->code)->name : '' }}">
+                                    <input type="text" name="name[{{$lang->code}}]" class="form-control" id="name" placeholder="{{ __('main.enter_name') }}" value="{{ ($contactus) && isset($contactus->translate($lang->code)->name) ? $contactus->translate($lang->code)->name : '' }}">
                                     @error('name.' . $lang->code)
                                     <div class="text-danger">{{ $errors->first('name.' . $lang->code) }}</div>
                                     @enderror
@@ -50,7 +50,7 @@
                             @foreach($langs as $lang)
                                 <div class="form-group">
                                     <label for="address">{{ __('main.address') }} ({{ $lang->name }})</label> <!-- Translation for Address -->
-                                    <input type="text" name="address[{{$lang->code}}]" class="form-control" id="address" placeholder="{{ __('main.enter_address') }}" value="{{ isset($contactus->translate($lang->code)->address) ? $contactus->translate($lang->code)->address : '' }}">
+                                    <input type="text" name="address[{{$lang->code}}]" class="form-control" id="address" placeholder="{{ __('main.enter_address') }}" value="{{($contactus) &&  isset($contactus->translate($lang->code)->address) ? $contactus->translate($lang->code)->address : '' }}">
                                     @error('address.' . $lang->code)
                                     <div class="text-danger">{{ $errors->first('address.' . $lang->code) }}</div>
                                     @enderror
@@ -63,7 +63,7 @@
                         <div class="border p-3">
                             <div class="form-group">
                                 <label for="phone1">{{ __('main.phone1') }}</label> <!-- Translation for Phone 1 -->
-                                <input type="text" name="phone1" class="form-control" id="phone1" placeholder="{{ __('main.enter_phone1') }}" value="{{ $contactus->phone1 }}">
+                                <input type="text" name="phone1" class="form-control" id="phone1" placeholder="{{ __('main.enter_phone1') }}" value="{{ ($contactus) ? $contactus->phone1 : '' }}">
                                 @error('phone1')
                                 <div class="text-danger">{{ $errors->first('phone1') }}</div>
                                 @enderror
@@ -71,7 +71,7 @@
 
                             <div class="form-group">
                                 <label for="phone2">{{ __('main.phone2') }}</label> <!-- Translation for Phone 2 -->
-                                <input type="text" name="phone2" class="form-control" id="phone2" placeholder="{{ __('main.enter_phone2') }}" value="{{ $contactus->phone2 }}">
+                                <input type="text" name="phone2" class="form-control" id="phone2" placeholder="{{ __('main.enter_phone2') }}" value="{{ ($contactus) ? $contactus->phone2 : '' }}">
                                 @error('phone2')
                                 <div class="text-danger">{{ $errors->first('phone2') }}</div>
                                 @enderror
@@ -79,7 +79,7 @@
 
                             <div class="form-group">
                                 <label for="phone3">{{ __('main.phone3') }}</label> <!-- Translation for Phone 3 -->
-                                <input type="text" name="phone3" class="form-control" id="phone3" placeholder="{{ __('main.enter_phone3') }}" value="{{ $contactus->phone3 }}">
+                                <input type="text" name="phone3" class="form-control" id="phone3" placeholder="{{ __('main.enter_phone3') }}" value="{{($contactus) ?   $contactus->phone3 : '' }}">
                                 @error('phone3')
                                 <div class="text-danger">{{ $errors->first('phone3') }}</div>
                                 @enderror
@@ -89,7 +89,7 @@
 
                         <div class="form-group">
                             <label for="email">{{ __('main.email') }}</label> <!-- Translation for Email -->
-                            <input type="text" name="email" class="form-control" id="email" placeholder="{{ __('main.enter_email') }}" value="{{ $contactus->email }}">
+                            <input type="text" name="email" class="form-control" id="email" placeholder="{{ __('main.enter_email') }}" value="{{ ($contactus)  ? $contactus->email : '' }}">
                             @error('email')
                             <div class="text-danger">{{ $errors->first('email') }}</div>
                             @enderror
@@ -101,7 +101,7 @@
                             @foreach($langs as $lang)
                                 <div class="form-group">
                                     <label for="des">{{ __('main.des') }} ({{$lang->name}})</label> <!-- Translation for Description -->
-                                    <textarea name="des[{{$lang->code}}]" class="ckeditor">{{ isset($contactus->translate($lang->code)->des) ? $contactus->translate($lang->code)->des : '' }}</textarea>
+                                    <textarea name="des[{{$lang->code}}]" class="ckeditor">{{ ($contactus) && isset($contactus->translate($lang->code)->des) ? $contactus->translate($lang->code)->des : '' }}</textarea>
                                     @error('des.' . $lang->code)
                                     <div class="text-danger">{{ $errors->first('des.' . $lang->code) }}</div>
                                     @enderror
@@ -121,7 +121,7 @@
                                     <span class="input-group-text">{{ __('main.upload') }}</span> <!-- Translation for Upload -->
                                 </div>
                             </div>
-                            @if($contactus->photo)
+                            @if(($contactus) && $contactus->photo)
                                 <img src="{{ asset('uploads/images/contactus/' . $contactus->photo) }}" width="150px" height="150px">
                             @endif
                             @error('photo')
@@ -135,7 +135,7 @@
                             @foreach($langs as $lang)
                                 <div class="form-group">
                                     <label for="alt_image">{{ __('main.alt_image') }} ({{ $lang->name }})</label> <!-- Translation for Alt Image -->
-                                    <input type="text" name="alt_image[{{$lang->code}}]" class="form-control" id="alt_image" placeholder="{{ __('main.enter_alt_image') }}" value="{{ isset($contactus->translate($lang->code)->alt_image) ? $contactus->translate($lang->code)->alt_image : '' }}">
+                                    <input type="text" name="alt_image[{{$lang->code}}]" class="form-control" id="alt_image" placeholder="{{ __('main.enter_alt_image') }}" value="{{($contactus) &&  isset($contactus->translate($lang->code)->alt_image) ? $contactus->translate($lang->code)->alt_image : '' }}">
                                     @error('alt_image.' . $lang->code)
                                     <div class="text-danger">{{ $errors->first('alt_image.' . $lang->code) }}</div>
                                     @enderror
@@ -148,7 +148,7 @@
                             @foreach($langs as $lang)
                                 <div class="form-group">
                                     <label for="title_image">{{ __('main.title_image') }} ({{ $lang->name }})</label> <!-- Translation for Title Image -->
-                                    <input type="text" name="title_image[{{$lang->code}}]" class="form-control" id="title_image" placeholder="{{ __('main.enter_title_image') }}" value="{{ isset($contactus->translate($lang->code)->title_image) ? $contactus->translate($lang->code)->title_image : '' }}">
+                                    <input type="text" name="title_image[{{$lang->code}}]" class="form-control" id="title_image" placeholder="{{ __('main.enter_title_image') }}" value="{{ ($contactus) && isset($contactus->translate($lang->code)->title_image) ? $contactus->translate($lang->code)->title_image : '' }}">
                                     @error('title_image.' . $lang->code)
                                     <div class="text-danger">{{ $errors->first('title_image.' . $lang->code) }}</div>
                                     @enderror
@@ -161,7 +161,7 @@
                             @foreach($langs as $lang)
                                 <div class="form-group">
                                     <label for="meta_title">{{ __('main.meta_title') }} ({{$lang->name}})</label> <!-- Translation for Meta Title -->
-                                    <textarea name="meta_title[{{$lang->code}}]" class="ckeditor">{{ isset($contactus->translate($lang->code)->meta_title) ? $contactus->translate($lang->code)->meta_title : '' }}</textarea>
+                                    <textarea name="meta_title[{{$lang->code}}]" class="ckeditor">{{($contactus) &&  isset($contactus->translate($lang->code)->meta_title) ? $contactus->translate($lang->code)->meta_title : '' }}</textarea>
                                     @error('meta_title.' . $lang->code)
                                     <div class="text-danger">{{ $errors->first('meta_title.' . $lang->code) }}</div>
                                     @enderror
@@ -174,7 +174,7 @@
                             @foreach($langs as $lang)
                                 <div class="form-group">
                                     <label for="meta_des">{{ __('main.meta_des') }} ({{$lang->name}})</label> <!-- Translation for Meta Description -->
-                                    <textarea name="meta_des[{{$lang->code}}]" class="ckeditor">{{ isset($contactus->translate($lang->code)->meta_des) ? $contactus->translate($lang->code)->meta_des : '' }}</textarea>
+                                    <textarea name="meta_des[{{$lang->code}}]" class="ckeditor">{{ ($contactus) && isset($contactus->translate($lang->code)->meta_des) ? $contactus->translate($lang->code)->meta_des : '' }}</textarea>
                                     @error('meta_des.' . $lang->code)
                                     <div class="text-danger">{{ $errors->first('meta_des.' . $lang->code) }}</div>
                                     @enderror

@@ -422,5 +422,6 @@ return [
     'backup_database' =>'Database',
     'backup_file' =>'Media',
     'database'=>'Database',
+    'no_data_found'=>'No Data',
 
 ];

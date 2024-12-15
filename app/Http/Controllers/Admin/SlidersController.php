@@ -20,6 +20,7 @@ class SlidersController extends Controller
     public function __construct()
     {
         $this->langs = Lang::all();
+
     }
 
     //
@@ -74,7 +75,7 @@ class SlidersController extends Controller
             $slider->save();
             DB::commit();
             Alert::success('Success', 'Your slider is saved !');
-            return redirect()->back();
+            return redirect()->back()->with('success', true);
 
         } catch (\Exception $e) {
 
@@ -140,7 +141,7 @@ class SlidersController extends Controller
         $slider = Slider::findOrFail($id);
         $slider->forceDelete();
         Alert::success('success', 'Slider Deleted Successfully !');
-        return redirect()->back();
+        return redirect()->route('admin.sliders.index');
     }
 
     public function soft_delete($id)

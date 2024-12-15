@@ -25,12 +25,12 @@ class AboutRequest extends FormRequest
     {
         return [
             'name.*'=>'required|string',
-            'des.*'=>'required|string',
-            'alt_image.*'=>'required|string',
-            'title_image.*'=>'required|string',
+            'des.*'=>'nullable|string',
+            'alt_image.*'=>'nullable|string',
+            'title_image.*'=>'nullable|string',
             'photo'=>'nullable|image|mimes:jpeg,png,jpg,gif,webp',
-            'meta_title.*'  =>'required|string',
-            'meta_des.*'    =>'required|string'
+            'meta_title.*'  =>'nullable|string',
+            'meta_des.*'    =>'nullable|string'
         ];
     }
 }

@@ -17,23 +17,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(AboutSeeder::class);
-        $this->call(ContactusSeeder::class);
-        $this->call(LangSeeder::class);
-        $this->call(SettingSeeder::class);
-        $this->call(SocialMediaSeeder::class);
-        $this->call(AchivementSeeder::class);
-        $this->call(SliderSeeder::class);
-        $this->call(CategorySeeder::class);
-        $this->call(CmsSeeder::class);
-        $this->call(ClientsSeeder::class);
-        $this->call(ServicesSeeder::class);
-        $this->call(SescriptionSeeder::class);
-        $this->call(ProjectsSeeder::class);
-        $this->call(UserSeeder::class);
-        $this->call(MissionVissionSeeder::class);
-        $this->call(ShimpmentSeeder::class);
-        $this->call(GovsSeeder::class);
-        $this->call(CitySeeder::class);
+      //  $this->call(AboutSeeder::class);
+       // $this->call(ContactusSeeder::class);
+//        $this->call(LangSeeder::class);
+          $this->call(SettingSeeder::class);
+//        $this->call(SocialMediaSeeder::class);
+//        $this->call(AchivementSeeder::class);
+       // $this->call(SliderSeeder::class);
+//        $this->call(CategorySeeder::class);
+//        $this->call(CmsSeeder::class);
+//        $this->call(ClientsSeeder::class);
+//        $this->call(ServicesSeeder::class);
+//        $this->call(SescriptionSeeder::class);
+//        $this->call(ProjectsSeeder::class);
+          $this->call(UserSeeder::class);
+//        $this->call(MissionVissionSeeder::class);
+//        $this->call(ShimpmentSeeder::class);
+//        $this->call(GovsSeeder::class);
+//        $this->call(CitySeeder::class);
     }
 }

@@ -194,27 +194,22 @@ class ServiceController extends Controller
 
     // store image to service gallery one by one
     public function store_gallery(Request $request , $id){
-
         $service = Service::findOrFail($id);
         $request->validate([
             'photo.*' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
-
         if ($request->hasFile('photo')) {
             foreach ($request->file('photo') as $file) {
                 // Generate a unique name for each image
                 $image_name = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
-
                 // Move the file to the upload directory
                 $file->move(public_path('uploads/images/service'), $image_name);
-
                 // Save each image to the database
                 $gallery = new ServicesGallary();
                 $gallery->service_id = $service->id;
                 $gallery->photo = $image_name;
                 $gallery->save();
             }
-
             // Success message
             Alert::success('Success', 'Service Gallery Added Successfully!');
             return redirect()->back();

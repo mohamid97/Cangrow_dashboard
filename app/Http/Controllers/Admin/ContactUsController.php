@@ -28,11 +28,11 @@ class ContactUsController extends Controller
     }
 
     // update contact us
-    public function update(ContactusRequest $request , $id)
+    public function update(ContactusRequest $request)
     {
         try {
             DB::beginTransaction();
-            $contact = Contactus::first();
+            $contact = Contactus::first() ?? new Contactus();
             if($request->has('photo')){
                 $image_name = $request->photo->getClientOriginalName();
                 $request->photo->move(public_path('uploads/images/contactus'), $image_name);

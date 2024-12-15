@@ -25,12 +25,12 @@ class ContactusRequest extends FormRequest
     {
         return [
             //
-            'email'=>'required|email',
+            'email'=>'nullable|email',
             'des.*'=>'nullable|string',
-            'meta_title.*'=>'required|string',
-            'meta_des.*'=>'required|string',
-            'title_image.*'=>'required|string',
-            'alt_image.*'=>'required|string',
+            'meta_title.*'=>'nullable|string',
+            'meta_des.*'=>'nullable|string',
+            'title_image.*'=>'nullable|string',
+            'alt_image.*'=>'nullable|string',
             'phone1'=>'nullable|string',
             'phone2'=>'nullable|string',
             'phone3'=>'nullable|string',

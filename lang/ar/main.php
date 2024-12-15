@@ -420,5 +420,6 @@ return [
     'backup_database' =>'قواعد البيانات',
     'backup_file' =>'الوسائط',
     'database'=>'فواعد البيانات',
+    'no_data_found'=>' لا توجد بيانات',
 
 ];

@@ -53,13 +53,13 @@ class OurClientController extends Controller
             OurClient::create(['name'=>$request->name ,'address'=>$request->address , 'icon'=>$image_name]);
             DB::commit();
             Alert::success('Success', 'Added Successfully !');
-            return redirect()->route('admin.our_clients.index');
+            return redirect()->back();
 
         }catch(\Exception $e){
-   
+
             DB::rollBack();
             Alert::error('error', 'Tell The Programmer To solve Error');
-            return redirect()->route('admin.our_clients.index');
+            return redirect()->back();
         }
 
     }
@@ -83,7 +83,7 @@ class OurClientController extends Controller
 
             DB::commit();
             Alert::success('Success', 'Updated Successfully ! !');
-            return redirect()->route('admin.our_clients.index');
+            return redirect()->back();
 
         }catch(\Exception $e){
             // If an exception occurs, rollback the transaction
@@ -102,7 +102,7 @@ class OurClientController extends Controller
         $client = OurClient::findOrFail($id);
         $client->forceDelete();
         Alert::success('success', 'OurClient  Deleted Successfully !');
-        return redirect()->route('admin.our_clients.index');
+        return redirect()->back();
     }
 
     public function soft_delete($id)
@@ -110,7 +110,7 @@ class OurClientController extends Controller
         $client = OurClient::findOrFail($id);
         $client->delete();
         Alert::success('success', 'OurClientSoft Deleted Successfully !');
-        return redirect()->route('admin.our_clients.index');
+        return redirect()->back();
 
     }
 
@@ -119,7 +119,7 @@ class OurClientController extends Controller
         $client = OurClient::withTrashed()->findOrFail($id);
         $client->restore();
         Alert::success('success', 'Our Client Restored Successfully !');
-        return redirect()->route('admin.our_clients.index');
+        return redirect()->back();
 
     }
 }
