@@ -1,5 +1,16 @@
 @extends('admin.layout.master')
-
+@section('styles')
+    <style>
+        svg {
+            font-size: 5px;
+            width: 28px;
+        }
+        .text-sm {
+            margin-top: 26px;
+            font-size: .875rem !important;
+        }
+    </style>
+@endsection
 @section('content')
     <section class="content-header">
         <div class="container-fluid">
@@ -95,6 +106,13 @@
                         @endforelse
                         </tbody>
                     </table>
+
+                    <div class="d-flex justify-content-center" style="margin-top: 50px;">
+                        <!-- Pagination Links -->
+                        {{ $cms->links() }}
+                    </div>
+
+
                 </div>
             </div>
         </div>
