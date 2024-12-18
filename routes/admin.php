@@ -39,6 +39,8 @@ use Illuminate\Routing\RouteRegistrar;
 use App\Http\Controllers\Admin\PointsController;
 use App\Http\Controllers\Admin\SalesToolController;
 use App\Http\Controllers\Admin\BackupController;
+use App\Http\Controllers\Admin\FeedBackController;
+
 
 Route::get('/mig' , function (){
 
@@ -75,6 +77,23 @@ Route::middleware(['checkIfAdmin' , 'DashboardLang'])->prefix('admin')->group(fu
         \Illuminate\Support\Facades\Session::put('locale', $lang);
         return redirect()->back();
     })->name('change_direction');
+
+
+
+
+    // start feedback
+
+    Route::prefix('feedbacks')->group(function(){
+        Route::get('/' , [FeedBackController::class , 'index'])->name('admin.feedback.index');
+        Route::get('/add' , [FeedBackController::class , 'create'])->name('admin.feedback.add');
+        Route::post('/store' , [FeedBackController::class , 'store'])->name('admin.feedback.store');
+        Route::get('/edit/{id}' , [FeedBackController::class , 'edit'])->name('admin.feedback.edit');
+        Route::post('/update/{id}' , [FeedBackController::class , 'update'])->name('admin.feedback.update');
+        Route::get('/destroy/{id}' , [FeedBackController::class , 'destroy'])->name('admin.feedback.destroy');
+        Route::get('/soft_delete/{id}' , [FeedBackController::class , 'soft_delete'])->name('admin.feedback.soft_delete');
+        Route::get('/restore/{id}' , [FeedBackController::class , 'restore'])->name('admin.feedback.restore');
+    });
+
 
 
     // backup

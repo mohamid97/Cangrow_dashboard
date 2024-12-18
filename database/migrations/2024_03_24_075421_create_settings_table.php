@@ -52,6 +52,7 @@ return new class extends Migration
             $table->string('tags')->nullable();
             $table->string('points')->nullable();
             $table->string('sales_tool')->nullable();
+            $table->string('feedback')->nullable();
 
             $table->timestamps();
         });

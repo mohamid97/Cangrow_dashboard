@@ -438,6 +438,28 @@
                         </div>
 
 
+
+                        <div class="form-group">
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <lable>Show/Hide - Feedbacks </lable>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="custom-control custom-checkbox">
+                                        <input {{($settings->feedback ?'checked':'')}} name="feedback" type="checkbox" class="custom-control-input" id="feedback5">
+                                        <label class="custom-control-label" for="feedback5"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            @error('feedback')
+                            <div class="text-danger">{{ $errors->first('feedback') }}</div>
+                            @enderror
+                        </div>
+
+                        
+
+
                         <div class="form-group">
 
                             <div class="row">

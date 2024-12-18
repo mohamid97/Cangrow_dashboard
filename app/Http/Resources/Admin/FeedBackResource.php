@@ -4,7 +4,7 @@ namespace App\Http\Resources\Admin;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class MediaGroupResource extends JsonResource
+class FeedBackResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,13 +14,13 @@ class MediaGroupResource extends JsonResource
      */
     public function toArray($request)
     {
-    
         return [
             'name'=> $this->name,
-            'gallery'=>$this->whenLoaded('gallerys'),
-            'files'=>$this->whenLoaded('files'),
-            'viedos'=>$this->whenLoaded('viedos'),
-            
+            'image'=>$this->image,
+            'icon' =>$this->icon,
+            'des'=>$this->des,
+            'small_des'=>$this->small_des,
+            'image_path'=> asset('uploads/images/feedbacks')
         ];
     }
 }

@@ -40,6 +40,13 @@ Route::middleware('checkLang')->group(function (){
         Route::post('/get' , [\App\Http\Controllers\Api\SliderController::class , 'get']);
     });
 
+    // start feedback api Fe
+    Route::prefix('feedbacks')->group(function(){
+
+        Route::get('/get' , [\App\Http\Controllers\Api\FeedbackController::class , 'get']);
+    });
+
+
     Route::prefix('about-us')->group(function (){
         Route::post('/get' , [\App\Http\Controllers\Api\AboutController::class , 'get']);
     });
