@@ -121,13 +121,12 @@ Route::middleware(['checkIfAdmin' , 'DashboardLang'])->prefix('admin')->group(fu
 
 
 
-    // featured
-        //start featured products
-        Route::prefix('featured')->group(function(){
-            Route::get('/get' , [FeaturedController::class ,'index'])->name('admin.featured.index');
-            Route::get('/delete/{id}' , [FeaturedController::class , 'delete'])->name('admin.featured.delete');
-            Route::post('store' , [ FeaturedController::class, 'store'])->name('admin.featured.store');
-        });
+    // featured start featured products
+    Route::prefix('featured')->group(function(){
+        Route::get('/get' , [FeaturedController::class ,'index'])->name('admin.featured.index');
+        Route::get('/delete/{id}' , [FeaturedController::class , 'delete'])->name('admin.featured.delete');
+        Route::post('store' , [ FeaturedController::class, 'store'])->name('admin.featured.store');
+    });
 
 
 
