@@ -14,13 +14,12 @@ class MediaGroupResource extends JsonResource
      */
     public function toArray($request)
     {
-    
+
         return [
             'name'=> $this->name,
             'gallery'=>$this->whenLoaded('gallerys'),
             'files'=>$this->whenLoaded('files'),
             'viedos'=>$this->whenLoaded('viedos'),
-            
         ];
     }
 }

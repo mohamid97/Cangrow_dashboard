@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
     {
       //  $this->call(AboutSeeder::class);
        // $this->call(ContactusSeeder::class);
-//        $this->call(LangSeeder::class);
+          $this->call(LangSeeder::class);
           $this->call(SettingSeeder::class);
 //        $this->call(SocialMediaSeeder::class);
 //        $this->call(AchivementSeeder::class);

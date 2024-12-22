@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class FeedbackTranslation extends Model
 {
+    protected $fillable = ['des', 'name' , 'small_des'];
     use HasFactory;
 }

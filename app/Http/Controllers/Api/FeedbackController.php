@@ -16,6 +16,7 @@ class FeedbackController extends Controller
         $feeds = Feedback::whereHas('translations', function ($query) {
             $query->where('locale', '=', app()->getLocale());
         })->get();
+
         return  $this->res(true ,'All Feedbacks' , 200 ,FeedBackResource::collection($feeds));
     }
 

@@ -428,4 +428,11 @@ return [
     'feedbacks'=>'Feedbacks',
     'projects'=>'Projects',
 
+    'all_feedbacks'=>'All Feedbacks',
+    'new_feedback'=>'Add New Feedback',
+    'choose_icon'=>'Choose Icon',
+    'edit_feedback'=>'Edit Feedback',
+
+
+
 ];
