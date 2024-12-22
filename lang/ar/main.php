@@ -286,7 +286,7 @@ return [
     'show_zone' => 'المنطقه',
     'company' => 'الشركخ',
     'info' => 'معلومات',
-    'logout' => 'حروج',
+    'logout' => 'خروج',
     'languages' => 'اللغات',
     'more_info'=>'المزيد من المعلومات',
     'latest_orders'=>' اخر الطلبات',
@@ -421,5 +421,8 @@ return [
     'backup_file' =>'الوسائط',
     'database'=>'فواعد البيانات',
     'no_data_found'=>' لا توجد بيانات',
-
+    'langs'=>'اللغات',
+    'dashboard'=>'لوحة التحكم',
+    'feedbacks'=>'التعليقات',
+    'projects'=>'المشاريع',
 ];

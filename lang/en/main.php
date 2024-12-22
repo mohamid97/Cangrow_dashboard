@@ -423,5 +423,9 @@ return [
     'backup_file' =>'Media',
     'database'=>'Database',
     'no_data_found'=>'No Data',
+    'langs'=>'Langs',
+    'dashboard'=>'Dashboard',
+    'feedbacks'=>'Feedbacks',
+    'projects'=>'Projects',
 
 ];

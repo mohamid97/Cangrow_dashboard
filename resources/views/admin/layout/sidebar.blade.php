@@ -424,7 +424,7 @@
                             <a href="#" class="nav-link">
                                 <i class="fa fa-comments nav-icon"></i>
                                 <p>
-                                    Feedbacks
+                                    {{ __('main.feedbacks') }}
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
@@ -433,7 +433,7 @@
                                 <li class="nav-item">
                                     <a href="{{route('admin.feedback.index')}}" class="nav-link">
                                         <i class="fa fa-language nav-icon"></i>
-                                        <p>  All </p>
+                                        <p>  {{ __('main.all') }} </p>
                                     </a>
                                 </li>
 
@@ -442,7 +442,7 @@
                                 <li class="nav-item">
                                     <a href="{{route('admin.feedback.index')}}" class="nav-link">
                                         <i class="fa fa-plus nav-icon"></i>
-                                        <p>  Add </p>
+                                        <p>  {{ __('main.add') }} </p>
                                     </a>
                                 </li>
 
