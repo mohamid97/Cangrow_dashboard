@@ -23,6 +23,7 @@ class StoreProductRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
             'name.*'=>'required|string|max:255',
             'slug.*'=>'required|string|max:255',
@@ -35,8 +36,7 @@ class StoreProductRequest extends FormRequest
             'old_price' => 'nullable|numeric|min:0',
             'sku'=>'nullable|max:255|unique:products,sku',
             'video'=>'nullable|url'
-
-
         ];
+
     }
 }

@@ -15,7 +15,7 @@ class MissionVission extends Controller
     public function __construct()
     {
         $this->langs = Lang::all();
-        
+
     }
 
     public function mision_vission(){
@@ -24,10 +24,7 @@ class MissionVission extends Controller
     }
 
     public function mision_vission_store(Request $request)  {
-
-       
-
-        $mission = AdminMissionVission::first();
+        $mission = AdminMissionVission::firstOrCreate();
         foreach ($this->langs as $lang) {
             $mission->{'services:'.$lang->code}  = $request->services[$lang->code];
             $mission->{'mission:'.$lang->code}   = $request->mission[$lang->code];
@@ -41,6 +38,6 @@ class MissionVission extends Controller
         Alert::success('Success', 'Mission And Vission Updated Successfully !');
         return redirect()->route('admin.mission_vission.index');
 
-        
+
     }
 }

@@ -425,4 +425,14 @@ return [
     'dashboard'=>'لوحة التحكم',
     'feedbacks'=>'التعليقات',
     'projects'=>'المشاريع',
+    'all_feedbacks'=>'جميع التعليقات',
+    'new_feedback'=>'إضافة تعليق جديد',
+    'choose_icon'=>'اختر الايقونه',
+    'edit_feedback'=>'تعديل التعليقات',
+    'enter_brief'=>'أدخل الملخص',
+    'enter_vision'=>'أدخل رسالتنا',
+    'our_mission_and_vision'=>'مهمتنا ورسالتنا',
+    'vision'=>'رسالتنا ',
+
+
 ];

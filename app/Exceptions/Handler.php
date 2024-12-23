@@ -59,6 +59,13 @@ class Handler extends ExceptionHandler
 
             return $this->res(true , 'unauthenticated' , JsonResponse::HTTP_UNAUTHORIZED , 'You are not unauthenticated. Please log in to access this resource');
         }
+        if ($exception instanceof \Illuminate\Http\Exceptions\ThrottleRequestsException) {
+            return $this->res(false , 'Many Requests' , 429 , 'Too many requests, please slow down!');
+        }
+
+
+
+
 
         return parent::render($request, $exception);
     }

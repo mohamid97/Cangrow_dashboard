@@ -427,11 +427,16 @@ return [
     'dashboard'=>'Dashboard',
     'feedbacks'=>'Feedbacks',
     'projects'=>'Projects',
-
     'all_feedbacks'=>'All Feedbacks',
     'new_feedback'=>'Add New Feedback',
     'choose_icon'=>'Choose Icon',
     'edit_feedback'=>'Edit Feedback',
+    'enter_brief'=>'Enter Brief',
+    'enter_vision'=>'Enter Vission',
+    'our_mission_and_vision'=>'Our Mission And Mission',
+    'vision'=>'Vision',
+
+
 
 
 
