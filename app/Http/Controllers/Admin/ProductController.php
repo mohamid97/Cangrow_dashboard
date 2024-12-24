@@ -65,10 +65,10 @@ class ProductController extends Controller
     public function store(StoreProductRequest $request)
     {
 
-        if($this->check_sku($request->sku)){
-            Alert::error('error', 'Sku Already Used Before');
-            return redirect()->route('admin.products.index');
-        }
+//        if($this->check_sku($request->sku)){
+//            Alert::error('error', 'Sku Already Used Before');
+//            return redirect()->route('admin.products.index');
+//        }
 
         try{
             DB::beginTransaction();
@@ -106,10 +106,10 @@ class ProductController extends Controller
     public function update(StoreProductRequest $request , $id)
     {
 
-        if($this->check_sku($request->sku , $id)){
-            Alert::error('error', 'Sku Already Used Before');
-            return redirect()->route('admin.products.index');
-        }
+//        if($this->check_sku($request->sku , $id)){
+//            Alert::error('error', 'Sku Already Used Before');
+//            return redirect()->route('admin.products.index');
+//        }
         try {
             DB::beginTransaction();
             $product = Product::findOrFail($id);

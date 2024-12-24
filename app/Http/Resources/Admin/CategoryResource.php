@@ -27,9 +27,9 @@ class CategoryResource extends JsonResource
             'small_des' => $this->small_des,
             'meta_title' => $this->meta_title,
             'meta_des'   => $this->meta_des,
-            'slug'=>$this->slug
-            
-          
+            'slug'=>$this->slug,
+            'products' => $this->when($this->products->isNotEmpty(), ProductResource::collection($this->products)),
+
         ];
     }
 }

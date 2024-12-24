@@ -26,10 +26,10 @@ class UpdateCategoryRequest extends FormRequest
         return [
             'name.*'=>'required|string|max:255',
             'slug.*'=>'required|string|max:255',
-            'type'=>'required|in:0,1',
+            'type'=>'nullable|in:0,1',
             'parent_id'=>'nullable|integer|exists:categories,id',
-            'des.*' => 'required|string|max:65535',
-            'small_des.*'=>'required|string|max:255',
+            'des.*' => 'nullable|string|max:65535',
+            'small_des.*'=>'nullable|string|max:255',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp',
             'meta_title.*'=>'nullable|max:65535',
             'meta_des.*'=>'nullable|max:65535',

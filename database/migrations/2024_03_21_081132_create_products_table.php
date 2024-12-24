@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('sku')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
             $table->string('star')->nullable();
-            $table->text('video');
+            $table->text('video')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

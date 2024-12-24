@@ -157,7 +157,7 @@
                         <div class="form-group">
                             <label>{{ __('main.category') }}</label>
                             <select type="text" name="category" class="form-control">
-                                <option value="0">{{ __('main.select_category') }}</option>
+                                <option value="">{{ __('main.select_category') }}</option>
                                 @forelse($categories as $category)
                                     <option value="{{$category->id}}" {{($category->id == $product->category_id) ? 'selected' : ''}}>{{$category->translate($langs[0]->code)->name}}</option>
                                 @empty

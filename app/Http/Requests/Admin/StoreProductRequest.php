@@ -34,7 +34,7 @@ class StoreProductRequest extends FormRequest
             'discount'=>'nullable|numeric|min:0',
             'price' => 'nullable|numeric|min:0',
             'old_price' => 'nullable|numeric|min:0',
-            'sku'=>'nullable|max:255|unique:products,sku',
+            'sku'=>'nullable|max:255',
             'video'=>'nullable|url'
         ];
 

@@ -36,6 +36,15 @@ class CategoryController extends Controller
         return  $this->res(false ,'Category details not found. Maybe there is no data with this slug or no data in this language.' , 404);
 
 
-        
+
+    }
+
+
+
+    // return categories with products
+    public function categories_with_products(){
+        $categories = Category::with('products')->get();
+        return $this->res(true , 'Categories with products' , 200 , CategoryResource::collection($categories));
+
     }
 }

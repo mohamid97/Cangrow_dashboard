@@ -55,6 +55,7 @@ Route::middleware('checkLang')->group(function (){
     Route::prefix('category')->group(function (){
         Route::post('/get' , [\App\Http\Controllers\Api\CategoryController::class , 'get']);
         Route::post('/details' , [\App\Http\Controllers\Api\CategoryController::class , 'get_details']);
+        Route::post('/categories/products' , [\App\Http\Controllers\Api\CategoryController::class , 'categories_with_products']);
     });
 
 
