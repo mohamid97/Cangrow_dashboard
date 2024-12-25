@@ -160,35 +160,39 @@ class ProductController extends Controller
     }
 
 
-
-
-    public function products_category(Request $request){
+    public function products_category(Request $request)
+    {
         $request->validate([
-            'slug'=>"required",
+            'slug' => "required",
         ]);
-        try{
-
-            $category = Category::whereHas('translations', function ($query) use($request) {
-                $query->where('locale', '=', app()->getLocale())->where('slug' , $request->slug);
+        try {
+            $category = Category::whereHas('translations', function ($query) use ($request) {
+                $query->where('locale', '=', app()->getLocale())->where('slug', $request->slug);
             })->first();
-            if(isset($category)){
-                $products = Product::where('category_id' , $category->id)->get();
-                return $this->res(true, ' Products', 200, ProductResource::collection($products));
+
+            if ($category) {
+                $categoryIds = $this->getAllCategoryIds($category);
+                $products = Product::whereIn('category_id', $categoryIds)->get();
+
+                return $this->res(true, 'Products fetched successfully', 200, ProductResource::collection($products));
             }
 
-            return $this->res(false, ' No Category Fonded', 404 );
-
-        }catch(\Exception $e){
-                 return $this->res(false, $e->getMessage(), $e->getCode(), $e->getLine());
+            return $this->res(false, 'No Category Found', 404);
+        } catch (\Exception $e) {
+            return $this->res(false, $e->getMessage(), $e->getCode(), $e->getLine());
         }
-
-
-
-
-
-
     }
 
+    private function getAllCategoryIds($category)
+    {
+        $ids = [$category->id];
+
+        foreach ($category->children as $child) {
+            $ids = array_merge($ids, $this->getAllCategoryIds($child));
+        }
+
+        return $ids;
+    }
 
 
 
