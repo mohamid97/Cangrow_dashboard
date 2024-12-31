@@ -1,5 +1,12 @@
 @extends('admin.layout.master')
 
+@section('styles')
+    <style>
+        .pointer{
+            cursor: pointer;
+        }
+    </style>
+@endsection
 @section('content')
     <section class="content-header">
         <div class="container-fluid">
@@ -343,7 +350,7 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-8">
-                                   <lable>Show/Hide - Sliders</lable>
+                                   <lable  class="pointer" onclick="toggleCheckbox('customCheck1')">Show/Hide - Sliders</lable>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="custom-control custom-checkbox">
@@ -362,7 +369,7 @@
 
                             <div class="row">
                                 <div class="col-md-8">
-                                    <lable>Show/Hide - About Us</lable>
+                                    <lable class="pointer" onclick="toggleCheckbox('customCheck2')">Show/Hide - About Us</lable>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="custom-control custom-checkbox">
@@ -382,7 +389,7 @@
 
                             <div class="row">
                                 <div class="col-md-8">
-                                    <lable>Show/Hide - Mission Vission</lable>
+                                    <lable class="pointer" onclick="toggleCheckbox('customCheck002')">Show/Hide - Mission Vission</lable>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="custom-control custom-checkbox">
@@ -404,7 +411,7 @@
 
                             <div class="row">
                                 <div class="col-md-8">
-                                    <lable>Show/Hide -  Shimpment </lable>
+                                    <lable class="pointer" onclick="toggleCheckbox('customCheck__00')">Show/Hide -  Shimpment </lable>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="custom-control custom-checkbox">
@@ -418,12 +425,50 @@
                             @enderror
                         </div>
 
+                            <div class="form-group">
+
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <lable class="pointer" onclick="toggleCheckbox('customCheck__brand')">Show/Hide -  Brand </lable>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="custom-control custom-checkbox">
+                                            <input {{($settings->brand ?'checked':'')}} name="brand" type="checkbox" class="custom-control-input" id="customCheck__brand">
+                                            <label class="custom-control-label" for="customCheck__brand"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                @error('brand')
+                                <div class="text-danger">{{ $errors->first('brand') }}</div>
+                                @enderror
+                            </div>
+
+
+
+                            <div class="form-group">
+
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <lable class="pointer" onclick="toggleCheckbox('customCheck__weight')">Show/Hide -  Weight </lable>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="custom-control custom-checkbox">
+                                            <input {{($settings->weight ?'checked':'')}} name="weight" type="checkbox" class="custom-control-input" id="customCheck__weight">
+                                            <label class="custom-control-label" for="customCheck__weight"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                @error('weight')
+                                <div class="text-danger">{{ $errors->first('weight') }}</div>
+                                @enderror
+                            </div>
+
 
                         <div class="form-group">
 
                             <div class="row">
                                 <div class="col-md-8">
-                                    <lable>Show/Hide -  Messages </lable>
+                                    <lable class="pointer" onclick="toggleCheckbox('customCheck00')">Show/Hide -  Messages </lable>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="custom-control custom-checkbox">
@@ -439,11 +484,17 @@
 
 
 
+
+
+
+
+                            <!--- here -->
+
                         <div class="form-group">
 
                             <div class="row">
                                 <div class="col-md-8">
-                                    <lable>Show/Hide - Feedbacks </lable>
+                                    <lable class="pointer" onclick="toggleCheckbox('feedback5')">Show/Hide - Feedbacks </lable>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="custom-control custom-checkbox">
@@ -457,14 +508,14 @@
                             @enderror
                         </div>
 
-                        
+
 
 
                         <div class="form-group">
 
                             <div class="row">
                                 <div class="col-md-8">
-                                    <lable>Show/Hide -  Payments </lable>
+                                    <lable class="pointer" onclick="toggleCheckbox('customCheck010')">Show/Hide -  Payments </lable>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="custom-control custom-checkbox">
@@ -488,7 +539,7 @@
 
                             <div class="row">
                                 <div class="col-md-8">
-                                    <lable>Show/Hide - Contact Us</lable>
+                                    <lable class="pointer" onclick="toggleCheckbox('customCheck3')">Show/Hide - Contact Us</lable>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="custom-control custom-checkbox">
@@ -509,7 +560,7 @@
 
                             <div class="row">
                                 <div class="col-md-8">
-                                    <lable>Show/Hide - Social Media</lable>
+                                    <lable class="pointer" onclick="toggleCheckbox('customCheck4')">Show/Hide - Social Media</lable>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="custom-control custom-checkbox">
@@ -528,7 +579,7 @@
 
                             <div class="row">
                                 <div class="col-md-8">
-                                    <lable>Show/Hide - Clients </lable>
+                                    <lable class="pointer" onclick="toggleCheckbox('customCheck5')">Show/Hide - Clients </lable>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="custom-control custom-checkbox">
@@ -547,7 +598,7 @@
 
                             <div class="row">
                                 <div class="col-md-8">
-                                    <lable>Show/Hide - Our works</lable>
+                                    <lable class="pointer" onclick="toggleCheckbox('customCheck6')">Show/Hide - Our works</lable>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="custom-control custom-checkbox">
@@ -567,7 +618,7 @@
 
                             <div class="row">
                                 <div class="col-md-8">
-                                    <lable>Show/Hide - Categories</lable>
+                                    <lable class="pointer" onclick="toggleCheckbox('customCheck7')">Show/Hide - Categories</lable>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="custom-control custom-checkbox">
@@ -586,7 +637,7 @@
 
                             <div class="row">
                                 <div class="col-md-8">
-                                    <lable>Show/Hide - Products </lable>
+                                    <lable class="pointer" onclick="toggleCheckbox('customCheck8')">Show/Hide - Products </lable>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="custom-control custom-checkbox">
@@ -606,7 +657,7 @@
 
                             <div class="row">
                                 <div class="col-md-8">
-                                    <lable>Show/Hide - Stock</lable>
+                                    <lable class="pointer" onclick="toggleCheckbox('stock123')">Show/Hide - Stock</lable>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="custom-control custom-checkbox">
@@ -625,7 +676,7 @@
 
                             <div class="row">
                                 <div class="col-md-8">
-                                    <lable>Show/Hide - Card</lable>
+                                    <lable class="pointer" onclick="toggleCheckbox('card')">Show/Hide - Card</lable>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="custom-control custom-checkbox">
@@ -643,7 +694,7 @@
 
                             <div class="row">
                                 <div class="col-md-8">
-                                    <lable>Show/Hide - Orders</lable>
+                                    <lable class="pointer" onclick="toggleCheckbox('orders')">Show/Hide - Orders</lable>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="custom-control custom-checkbox">
@@ -664,7 +715,7 @@
 
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <lable>Show/Hide - Tags</lable>
+                                        <lable class="pointer" onclick="toggleCheckbox('tags')">Show/Hide - Tags</lable>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="custom-control custom-checkbox">
@@ -686,7 +737,7 @@
 
                             <div class="row">
                                 <div class="col-md-8">
-                                    <lable>Show/Hide - Services</lable>
+                                    <lable class="pointer" onclick="toggleCheckbox('customCheck9')">Show/Hide - Services</lable>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="custom-control custom-checkbox">
@@ -706,7 +757,7 @@
 
                             <div class="row">
                                 <div class="col-md-8">
-                                    <lable>Show/Hide - Blog</lable>
+                                    <lable class="pointer" onclick="toggleCheckbox('customCheck10')">Show/Hide - Blog</lable>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="custom-control custom-checkbox">
@@ -727,7 +778,7 @@
 
                             <div class="row">
                                 <div class="col-md-8">
-                                    <lable>Show/Hide - Media</lable>
+                                    <lable class="pointer" onclick="toggleCheckbox('customCheck11')">Show/Hide - Media</lable>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="custom-control custom-checkbox">
@@ -747,7 +798,7 @@
 
                             <div class="row">
                                 <div class="col-md-8">
-                                    <lable>Show/Hide - Description</lable>
+                                    <lable class="pointer" onclick="toggleCheckbox('customCheck44')">Show/Hide - Description</lable>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="custom-control custom-checkbox">
@@ -765,7 +816,7 @@
 
                             <div class="row">
                                 <div class="col-md-8">
-                                    <lable>Show/Hide - Achievement</lable>
+                                    <lable class="pointer" onclick="toggleCheckbox('customCheck45')">Show/Hide - Achievement</lable>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="custom-control custom-checkbox">
@@ -783,7 +834,7 @@
 
                             <div class="row">
                                 <div class="col-md-8">
-                                    <lable>Show/Hide - Offers</lable>
+                                    <lable class="pointer" onclick="toggleCheckbox('offers')">Show/Hide - Offers</lable>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="custom-control custom-checkbox">
@@ -805,7 +856,7 @@
 
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <lable>Show/Hide - Points</lable>
+                                        <lable class="pointer" onclick="toggleCheckbox('customCheck0021points')">Show/Hide - Points</lable>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="custom-control custom-checkbox">
@@ -827,7 +878,7 @@
 
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <lable>Show/Hide - Sales Tool</lable>
+                                        <lable class="pointer" onclick="toggleCheckbox('sales_tool')">Show/Hide - Sales Tool</lable>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="custom-control custom-checkbox">
@@ -862,6 +913,16 @@
 
         </div>
     </section>
+@endsection
+
+
+@section('scripts')
+    <script>
+        function toggleCheckbox(id) {
+            const checkbox = document.getElementById(id);
+            checkbox.checked = !checkbox.checked;
+        }
+    </script>
 @endsection
 
 

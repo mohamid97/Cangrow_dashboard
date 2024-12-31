@@ -53,6 +53,7 @@ return new class extends Migration
             $table->string('points')->nullable();
             $table->string('sales_tool')->nullable();
             $table->string('feedback')->nullable();
+            $table->string('brand')->nullable();
 
             $table->timestamps();
         });

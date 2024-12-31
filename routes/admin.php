@@ -40,6 +40,8 @@ use App\Http\Controllers\Admin\PointsController;
 use App\Http\Controllers\Admin\SalesToolController;
 use App\Http\Controllers\Admin\BackupController;
 use App\Http\Controllers\Admin\FeedBackController;
+use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\WeightController;
 
 
 Route::get('/mig' , function (){
@@ -248,6 +250,28 @@ Route::middleware(['checkIfAdmin' , 'DashboardLang'])->prefix('admin')->group(fu
        Route::get('/restore/{id}' , [OurClientController::class , 'restore'])->name('admin.our_clients.restore');
        Route::get('/destroy/{id}' , [OurClientController::class , 'destroy'])->name('admin.our_clients.destroy');
        Route::post('/update/{id}' , [OurClientController::class , 'update'])->name('admin.our_clients.update');
+    });
+
+
+    // start our brands
+    Route::prefix('brands')->group(function (){
+        Route::get('/' , [BrandController::class , 'index'])->name('admin.brands.index');
+        Route::get('/create' , [BrandController::class , 'create'])->name('admin.brands.add');
+        Route::post('/store' , [BrandController::class , 'store'])->name('admin.brands.store');
+        Route::get('/edit/{id}' , [BrandController::class , 'edit'])->name('admin.brands.edit');
+        Route::get('/delete/{id}' , [BrandController::class , 'delete'])->name('admin.brands.delete');
+        Route::post('/update/{id}' , [BrandController::class , 'update'])->name('admin.brands.update');
+    });
+
+
+    // start our weight
+    Route::prefix('weights')->group(function (){
+        Route::get('/' , [WeightController::class , 'index'])->name('admin.weights.index');
+        Route::get('/create' , [WeightController::class , 'create'])->name('admin.weights.add');
+        Route::post('/store' , [WeightController::class , 'store'])->name('admin.weights.store');
+        Route::get('/edit/{id}' , [WeightController::class , 'edit'])->name('admin.weights.edit');
+        Route::get('/delete/{id}' , [WeightController::class , 'delete'])->name('admin.weights.delete');
+        Route::post('/update/{id}' , [WeightController::class , 'update'])->name('admin.weights.update');
     });
 
 

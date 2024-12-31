@@ -67,7 +67,8 @@ class SettingController extends Controller
                 $setting->points     = $request->points;
                 $setting->sales_tool     = $request->sales_tool;
                 $setting->feedback = $request->feedback;
-
+                $setting->brand = $request->brand;
+                $setting->weight = $request->weight;
                foreach ($this->files as $file){
                   $image_name = $this->uploadFile($request , $file);
                    if($image_name){
@@ -77,7 +78,6 @@ class SettingController extends Controller
                        $setting->{$file} = $image_name;
                        $setting->save();
                    } //check if is an image and was uploaded
-
                } // end foreach
 
                 // lang upload multi lang input
@@ -87,19 +87,16 @@ class SettingController extends Controller
                     if(isset($request->working_hours[$lang->code])){
                           $setting->{'working_hours:'.$lang->code}  = $request->working_hours[$lang->code];
                     }
-
                 }
                 $setting->save();
                 DB::commit();
                 Alert::success('Success', 'Settings Updated Successfully ! !');
                 return redirect()->route('admin.settings.index');
-
             }// if setting true
-
             Alert::error('error', 'Tell The Programmer To solve Error');
             return redirect()->route('admin.settings.index');
         }catch (\Exception $e){
-            dd($e->getMessage() , $e->getLine());
+            //dd($e->getMessage() , $e->getLine());
             // If an exception occurs, rollback the transaction
             DB::rollBack();
             Alert::error('error', 'Tell The Programmer To solve Error');

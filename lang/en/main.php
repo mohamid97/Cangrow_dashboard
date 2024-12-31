@@ -436,6 +436,13 @@ return [
     'our_mission_and_vision'=>'Our Mission And Mission',
     'vision'=>'Vision',
 
+    'brands'=>'Brands',
+    'brand'=>'Brand',
+    'add_new_brand'=>'Add New Brand',
+    'weights'=>'Weights',
+    'weight'=>'Weight',
+    'add_new_weight'=>'Add New Weight'
+
 
 
 
