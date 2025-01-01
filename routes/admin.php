@@ -41,6 +41,7 @@ use App\Http\Controllers\Admin\SalesToolController;
 use App\Http\Controllers\Admin\BackupController;
 use App\Http\Controllers\Admin\FeedBackController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\WeightController;
 
 
@@ -273,6 +274,17 @@ Route::middleware(['checkIfAdmin' , 'DashboardLang'])->prefix('admin')->group(fu
         Route::get('/delete/{id}' , [WeightController::class , 'delete'])->name('admin.weights.delete');
         Route::post('/update/{id}' , [WeightController::class , 'update'])->name('admin.weights.update');
     });
+
+
+        // start events
+        Route::prefix('events')->group(function (){
+            Route::get('/' , [EventController::class , 'index'])->name('admin.events.index');
+            Route::get('/create' , [EventController::class , 'create'])->name('admin.events.add');
+            Route::post('/store' , [EventController::class , 'store'])->name('admin.events.store');
+            Route::get('/edit/{id}' , [EventController::class , 'edit'])->name('admin.events.edit');
+            Route::get('/delete/{id}' , [EventController::class , 'delete'])->name('admin.events.delete');
+            Route::post('/update/{id}' , [EventController::class , 'update'])->name('admin.events.update');
+        });
 
 
     // start payment integeration
@@ -562,6 +574,10 @@ Route::middleware(['checkIfAdmin' , 'DashboardLang'])->prefix('admin')->group(fu
     // start achievement
     Route::prefix('achievements')->group(function (){
         Route::get('/'  , [AchievementConroller::class , 'index'])->name('admin.ach.index');
+        Route::get('/create' , [AchievementConroller::class , 'create'])->name('admin.ach.add');
+        Route::get('/edit/{id}' , [AchievementConroller::class , 'edit'])->name('admin.ach.edit');
+        Route::get('/delete/{id}' , [AchievementConroller::class , 'delete'])->name('admin.ach.delete');
+        Route::post('/store' , [AchievementConroller::class , 'store'])->name('admin.ach.store');
         Route::post('/update'  , [AchievementConroller::class , 'update'])->name('admin.ach.update');
     });
 

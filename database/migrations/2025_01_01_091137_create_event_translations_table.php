@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('achievements', function (Blueprint $table) {
+        Schema::create('event_translations', function (Blueprint $table) {
             $table->id();
-            $table->string('icon')->nullable();
-            $table->integer('number')->nullable();
+            $table->unsignedBigInteger('event_id');
+            $table->string('locale')->index();
+            $table->unique(['event_id', 'locale']);
+            $table->string('name');
+            $table->text('des')->nullable();
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('achievements');
+        Schema::dropIfExists('event_translations');
     }
 };

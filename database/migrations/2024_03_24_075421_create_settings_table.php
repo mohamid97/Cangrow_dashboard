@@ -54,6 +54,8 @@ return new class extends Migration
             $table->string('sales_tool')->nullable();
             $table->string('feedback')->nullable();
             $table->string('brand')->nullable();
+            $table->string('weight')->nullable();
+            $table->string('event')->nullable();
 
             $table->timestamps();
         });

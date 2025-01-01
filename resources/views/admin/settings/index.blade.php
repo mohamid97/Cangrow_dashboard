@@ -464,6 +464,28 @@
                             </div>
 
 
+
+
+                            <div class="form-group">
+
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <lable class="pointer" onclick="toggleCheckbox('customCheck__event')">Show/Hide -  Events </lable>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="custom-control custom-checkbox">
+                                            <input {{($settings->event ?'checked':'')}} name="event" type="checkbox" class="custom-control-input" id="customCheck__event">
+                                            <label class="custom-control-label" for="customCheck__event"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                @error('event')
+                                <div class="text-danger">{{ $errors->first('event') }}</div>
+                                @enderror
+                            </div>
+
+
+                            
                         <div class="form-group">
 
                             <div class="row">

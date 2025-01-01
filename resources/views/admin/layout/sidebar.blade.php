@@ -218,6 +218,38 @@
                         @endif
 
 
+                        @if($settings->event)
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-phone-volume"></i>
+                                <p>
+                                    {{ __('main.events') }}
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.events.index') }}" class="nav-link">
+                                        <i class="far fa-volume-control-phone nav-icon"></i>
+                                        <p>{{ __('main.events') }}</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.events.add') }}" class="nav-link">
+                                        <i class="fa fa-plus nav-icon"></i>
+                                        <p>{{ __('main.add') }}</p>
+                                    </a>
+                                </li>
+
+
+                            </ul>
+                        </li>
+                    @endif
+
+                    
+
+
 
 
 

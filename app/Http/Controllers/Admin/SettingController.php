@@ -69,6 +69,7 @@ class SettingController extends Controller
                 $setting->feedback = $request->feedback;
                 $setting->brand = $request->brand;
                 $setting->weight = $request->weight;
+                $setting->event = $request->event;
                foreach ($this->files as $file){
                   $image_name = $this->uploadFile($request , $file);
                    if($image_name){
