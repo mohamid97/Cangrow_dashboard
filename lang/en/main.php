@@ -441,7 +441,9 @@ return [
     'add_new_brand'=>'Add New Brand',
     'weights'=>'Weights',
     'weight'=>'Weight',
-    'add_new_weight'=>'Add New Weight'
+    'add_new_weight'=>'Add New Weight',
+    'events'=>"Events",
+    'add_new_event'=>'Add New Event'
 
 
 
