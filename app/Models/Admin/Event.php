@@ -15,4 +15,9 @@ class Event extends Model implements  TranslatableContract
     public $translatedAttributes = ['des', 'name'];
     public $translationForeignKey = 'event_id';
     public $translationModel = 'App\Models\Admin\EventTranslation';
+
+
+    public function images(){
+        return $this->hasMany(EventImage::class , 'event_id');
+    }
 }
