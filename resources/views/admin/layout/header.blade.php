@@ -69,7 +69,36 @@
     }
 
 
+    ::-webkit-scrollbar {
+        width: 10px; /* Width of the scrollbar */
+    }
 
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1; /* Track color */
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(45deg, #4a90e2, #409ba9);
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(45deg, #7b4397, #4a90e2); /* Hover effect */
+    }
+
+    /*[class*=sidebar-dark-] {*/
+    /*    background-color: #39536d;*/
+    /*}*/
+
+
+    /*.navbar-white {*/
+    /*    background-color: #527395;*/
+    /*}*/
+
+    /*.navbar-light .navbar-nav .nav-link {*/
+    /*    color: rgb(255 255 255);*/
+    /*}*/
 </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">

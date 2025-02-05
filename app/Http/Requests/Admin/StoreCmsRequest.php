@@ -24,6 +24,8 @@ class StoreCmsRequest extends FormRequest
     public function rules()
     {
         return [
+
+            'title.*'=>'required|string|max:255',
             'image'=>'required|image|mimes:jpeg,png,jpg,gif,webp',
             'name.*'=>'required|string|max:255',
             'des.*' =>'required|string',

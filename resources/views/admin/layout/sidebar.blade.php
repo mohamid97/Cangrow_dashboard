@@ -154,13 +154,10 @@
 
 
 
-
-
-
                         @if($settings->brand)
                             <li class="nav-item has-treeview">
                                 <a href="#" class="nav-link">
-                                    <i class="fa fa-phone-volume"></i>
+                                    <i class="fa fa-globe"></i>
                                     <p>
                                         {{ __('main.brands') }}
                                         <i class="right fas fa-angle-left"></i>
@@ -169,7 +166,7 @@
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="{{ route('admin.brands.index') }}" class="nav-link">
-                                            <i class="far fa-volume-control-phone nav-icon"></i>
+                                            <i class="fa fa-globe nav-icon"></i>
                                             <p>{{ __('main.brands') }}</p>
                                         </a>
                                     </li>
@@ -191,7 +188,7 @@
                         @if($settings->weight)
                             <li class="nav-item has-treeview">
                                 <a href="#" class="nav-link">
-                                    <i class="fa fa-phone-volume"></i>
+                                    <i class="fa fa-weight-hanging"></i>
                                     <p>
                                         {{ __('main.weights') }}
                                         <i class="right fas fa-angle-left"></i>
@@ -221,7 +218,7 @@
                         @if($settings->event)
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
-                                <i class="fa fa-phone-volume"></i>
+                                <i class="fa fa-calendar nav-icon"></i>
                                 <p>
                                     {{ __('main.events') }}
                                     <i class="right fas fa-angle-left"></i>
@@ -230,7 +227,7 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('admin.events.index') }}" class="nav-link">
-                                        <i class="far fa-volume-control-phone nav-icon"></i>
+                                        <i class="fa fa-calendar nav-icon"></i>
                                         <p>{{ __('main.events') }}</p>
                                     </a>
                                 </li>
@@ -247,7 +244,7 @@
                         </li>
                     @endif
 
-                    
+
 
 
 
@@ -256,7 +253,7 @@
                     @if($settings->social_media)
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
-                                <i class="far fa-newspaper nav-icon"></i>
+                                <i class="fa fa-hashtag nav-icon"></i>
                                 <p>
                                     {{ __('main.social_media') }}
                                     <i class="right fas fa-angle-left"></i>
@@ -265,7 +262,7 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('admin.social_media.index') }}" class="nav-link">
-                                        <i class="far fa-newspaper nav-icon"></i>
+                                        <i class="fa fa-hashtag nav-icon"></i>
                                         <p>{{ __('main.social_media') }}</p>
                                     </a>
                                 </li>
@@ -561,7 +558,7 @@
                     @if($settings->offers)
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
-                                <i class="fa fa-search nav-icon"></i>
+                                <i class="fa fa-tags nav-icon"></i>
                                 <p>
                                     {{ __('main.offers') }}
                                     <i class="right fas fa-angle-left"></i>
@@ -570,7 +567,7 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('admin.offers.index') }}" class="nav-link">
-                                        <i class="fa fa-language nav-icon"></i>
+                                        <i class="fa fa-tags nav-icon"></i>
                                         <p>{{ __('main.offers') }}</p>
                                     </a>
                                 </li>
@@ -587,7 +584,7 @@
                     @if($settings->card)
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
-                                <i class="fa fa-search nav-icon"></i>
+                                <i class="fa fa-cart-plus nav-icon"></i>
                                 <p>
                                     {{ __('main.carts') }}
                                     <i class="right fas fa-angle-left"></i>
@@ -610,7 +607,7 @@
                     @if($settings->orders)
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
-                                <i class="fa fa-search nav-icon"></i>
+                                <i class="fa fa-receipt nav-icon"></i>
                                 <p>
                                     {{ __('main.orders') }}
                                     <i class="right fas fa-angle-left"></i>
@@ -619,7 +616,7 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('admin.orders.index') }}" class="nav-link">
-                                        <i class="fa fa-language nav-icon"></i>
+                                        <i class="fa fa-receipt nav-icon"></i>
                                         <p>{{ __('main.orders') }}</p>
                                     </a>
                                 </li>
@@ -632,7 +629,7 @@
                         @if($settings->sales_tool)
                             <li class="nav-item has-treeview">
                                 <a href="#" class="nav-link">
-                                    <i class="fa fa-search nav-icon"></i>
+                                    <i class="fa fa-wrench nav-icon"></i>
                                     <p>
                                         {{ __('main.sales_tool') }}
                                         <i class="right fas fa-angle-left"></i>
@@ -641,7 +638,7 @@
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="{{ route('admin.sales_tool.index') }}" class="nav-link">
-                                            <i class="fa fa-language nav-icon"></i>
+                                            <i class="fa fa-wrench nav-icon"></i>
                                             <p>{{ __('main.sales_tool') }}</p>
                                         </a>
                                     </li>
@@ -862,7 +859,7 @@
                     @if($settings->achievement)
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
-                                <i class="fa fa-comment nav-icon"></i>
+                                <i class="fa fa-trophy nav-icon"></i>
                                 <p>
                                     {{ __('main.ach') }}
                                     <i class="right fas fa-angle-left"></i>
@@ -871,7 +868,7 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('admin.ach.index') }}" class="nav-link">
-                                        <i class="fa fa-google nav-icon"></i>
+                                        <i class="fa fa-trophy nav-icon"></i>
                                         <p>{{ __('main.ach') }}</p>
                                     </a>
                                 </li>
@@ -923,7 +920,7 @@
 
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
-                            <i class="fa fa-language nav-icon"></i>
+                            <i class="fa fa-solid fa-cloud-download-alt nav-icon"></i>
                             <p>
                                 {{ __('main.backup') }}
                                 <i class="right fas fa-angle-left"></i>
@@ -932,7 +929,7 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="{{ route('admin.backup.index') }}" class="nav-link">
-                                    <i class="fa fa-language nav-icon"></i>
+                                    <i class="fa fa-solid fa-cloud-download-alt nav-icon"></i>
                                     <p>{{ __('main.backup') }}</p>
                                 </a>
                             </li>

@@ -24,6 +24,7 @@ class UpdateCmsRequest extends FormRequest
     public function rules()
     {
         return [
+            'title.*'=>'required|string|max:255',
             'image'=>'nullable|image|mimes:jpeg,png,jpg,gif,webp',
             'name.*'=>'required|string|max:255',
             'des.*' =>'required|string',

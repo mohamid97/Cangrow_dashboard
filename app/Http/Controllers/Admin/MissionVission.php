@@ -24,6 +24,7 @@ class MissionVission extends Controller
     }
 
     public function mision_vission_store(Request $request)  {
+
         $mission = AdminMissionVission::firstOrCreate();
         foreach ($this->langs as $lang) {
             $mission->{'services:'.$lang->code}  = $request->services[$lang->code];
@@ -31,7 +32,6 @@ class MissionVission extends Controller
             $mission->{'vission:'.$lang->code}   = $request->vission[$lang->code];
             $mission->{'breif:'.$lang->code}     = $request->breif[$lang->code];
             $mission->{'about:'.$lang->code}     = $request->about[$lang->code];
-
         }
         $mission->save();
 
