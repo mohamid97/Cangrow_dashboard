@@ -43,6 +43,9 @@ use App\Http\Controllers\Admin\FeedBackController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\WeightController;
+use App\Http\Controllers\Admin\PartenerController;
+
+
 
 
 Route::get('/mig' , function (){
@@ -580,6 +583,19 @@ Route::middleware(['checkIfAdmin' , 'DashboardLang'])->prefix('admin')->group(fu
         Route::post('/store' , [AchievementConroller::class , 'store'])->name('admin.ach.store');
         Route::post('/update'  , [AchievementConroller::class , 'update'])->name('admin.ach.update');
     });
+
+    Route::prefix('parteners')->group(function (){
+        Route::get('/' , [PartenerController::class , 'index'])->name('admin.parteners.index');
+        Route::get('/create' , [PartenerController::class , 'create'])->name('admin.parteners.add');
+        Route::post('/store' , [PartenerController::class , 'store'])->name('admin.parteners.store');
+        Route::get('/edit/{id}' , [PartenerController::class , 'edit'])->name('admin.parteners.edit');
+        Route::get('/soft_delete/{id}' , [PartenerController::class , 'soft_delete'])->name('admin.parteners.soft_delete');
+        Route::get('/restore/{id}' , [PartenerController::class , 'restore'])->name('admin.parteners.restore');
+        Route::get('/destroy/{id}' , [PartenerController::class , 'destroy'])->name('admin.parteners.destroy');
+        Route::post('/update/{id}' , [PartenerController::class , 'update'])->name('admin.parteners.update');
+    });
+
+
 
 
 

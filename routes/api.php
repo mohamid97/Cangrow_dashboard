@@ -90,6 +90,10 @@ Route::middleware('checkLang')->group(function (){
        Route::post('/get'  , [\App\Http\Controllers\Api\OurClientController::class , 'get']);
     });
 
+    Route::prefix('parteners')->group(function (){
+        Route::get('/get'  , [\App\Http\Controllers\Api\PartenerController::class , 'get']);
+    });
+
     Route::prefix('services')->group(function (){
         Route::get('/get' , [\App\Http\Controllers\Api\ServicesController::class , 'get']);
         Route::post('/service_details/get' , [\App\Http\Controllers\Api\ServicesController::class , 'get_service_details']);
