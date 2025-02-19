@@ -70,6 +70,8 @@ class SettingController extends Controller
                 $setting->brand = $request->brand;
                 $setting->weight = $request->weight;
                 $setting->event = $request->event;
+                $setting->parteners = $request->parteners;
+                $setting->pages = $request->pages;
                foreach ($this->files as $file){
                   $image_name = $this->uploadFile($request , $file);
                    if($image_name){

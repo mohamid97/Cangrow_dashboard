@@ -346,7 +346,27 @@
                         @endforeach
 
 
-                        <h3> Tabs </h3>
+
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <label class="pointer" onclick="toggleAllCheckboxes()">Check All</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="checkAll" onclick="toggleAllCheckboxes()">
+                                            <label class="custom-control-label" for="checkAll"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <h3> Tabs </h3>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-8">
@@ -382,6 +402,28 @@
                             <div class="text-danger">{{ $errors->first('about_us') }}</div>
                             @enderror
                         </div>
+
+
+
+                        <div class="form-group">
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <lable class="pointer" onclick="toggleCheckbox('customCheck2')">Show/Hide - parteners</lable>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="custom-control custom-checkbox">
+                                        <input {{($settings->parteners ?'checked':'')}} name="parteners" type="checkbox" class="custom-control-input" id="customCheck2d">
+                                        <label class="custom-control-label" for="customCheck2d"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            @error('parteners')
+                            <div class="text-danger">{{ $errors->first('parteners') }}</div>
+                            @enderror
+                        </div>
+
+
 
 
 
@@ -485,7 +527,7 @@
                             </div>
 
 
-                            
+
                         <div class="form-group">
 
                             <div class="row">
@@ -900,6 +942,27 @@
 
                                 <div class="row">
                                     <div class="col-md-8">
+                                        <lable class="pointer" onclick="toggleCheckbox('customCheck002pages')">Show/Hide - Pages</lable>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="custom-control custom-checkbox">
+                                            <input {{($settings->pages ?'checked':'')}} name="pages" type="checkbox" class="custom-control-input" id="customCheck002pages">
+                                            <label class="custom-control-label" for="customCheck002pages"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                @error('pages')
+                                <div class="text-danger">{{ $errors->first('pages') }}</div>
+                                @enderror
+                            </div>
+
+
+
+
+                            <div class="form-group">
+
+                                <div class="row">
+                                    <div class="col-md-8">
                                         <lable class="pointer" onclick="toggleCheckbox('sales_tool')">Show/Hide - Sales Tool</lable>
                                     </div>
                                     <div class="col-md-4">
@@ -913,12 +976,6 @@
                                 <div class="text-danger">{{ $errors->first('sales_tool') }}</div>
                                 @enderror
                             </div>
-
-
-
-
-
-
 
 
                     </div>
@@ -944,7 +1001,20 @@
             const checkbox = document.getElementById(id);
             checkbox.checked = !checkbox.checked;
         }
+
+        function toggleAllCheckboxes() {
+            const checkAll = document.getElementById('checkAll');
+            const checkboxes = document.querySelectorAll('.custom-control-input');
+
+            // Loop through all checkboxes and set their checked state to match "Check All"
+            checkboxes.forEach(function(checkbox) {
+                if (checkbox !== checkAll) {
+                    checkbox.checked = checkAll.checked;
+                }
+            });
+        }
     </script>
 @endsection
+
 
 

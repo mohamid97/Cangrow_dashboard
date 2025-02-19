@@ -90,6 +90,15 @@ Route::middleware('checkLang')->group(function (){
        Route::post('/get'  , [\App\Http\Controllers\Api\OurClientController::class , 'get']);
     });
 
+
+    Route::prefix('pages')->group(function (){
+        Route::post('/get'  , [\App\Http\Controllers\Api\PageController::class , 'get']);
+        Route::post('/details'  , [\App\Http\Controllers\Api\PageController::class , 'details']);
+    });
+
+
+
+
     Route::prefix('parteners')->group(function (){
         Route::get('/get'  , [\App\Http\Controllers\Api\PartenerController::class , 'get']);
     });

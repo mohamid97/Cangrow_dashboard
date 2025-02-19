@@ -320,24 +320,51 @@
                     </li>
 
                     @if($settings->our_works)
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="fa fa-briefcase nav-icon"></i>
-                                <p>
-                                    {{ __('main.our_works') }}
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.our_works.index') }}" class="nav-link">
-                                        <i class="fa fa-briefcase nav-icon"></i>
-                                        <p>{{ __('main.our_works') }}</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    @endif
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="fa fa-briefcase nav-icon"></i>
+                                    <p>
+                                        {{ __('main.our_works') }}
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ route('admin.our_works.index') }}" class="nav-link">
+                                            <i class="fa fa-briefcase nav-icon"></i>
+                                            <p>{{ __('main.our_works') }}</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
+
+
+
+                        @if($settings->pages)
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="fa fa-briefcase nav-icon"></i>
+                                    <p>
+                                        {{ __('main.pages') }}
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ route('admin.pages.index') }}" class="nav-link">
+                                            <i class="fa fa-briefcase nav-icon"></i>
+                                            <p>{{ __('main.pages') }}</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
+
+
+
+
+
 
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
@@ -763,6 +790,36 @@
                             </ul>
                         </li>
                     @endif
+
+
+                    @if($settings->parteners)
+
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="fa fa-users nav-icon"></i>
+                                    <p>
+                                        {{ __('main.parteners') }}
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ route('admin.parteners.index') }}" class="nav-link">
+                                            <i class="fa fa-users nav-icon"></i>
+                                            <p>{{ __('main.parteners') }}</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('admin.parteners.add') }}" class="nav-link">
+                                            <i class="fa fa-plus nav-icon"></i>
+                                            <p>{{ __('main.add') }}</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+
+                     @endif
 
 
 

@@ -21,7 +21,7 @@ class SocialMediaController extends Controller
     {
         try {
             DB::beginTransaction();
-            $social = SocialMedia::findOrFail($id);
+            $social = SocialMedia::firstOrCreate($id);
             $social->facebook = $request->facebook;
             $social->facebook_option = $request->facebook_option;
             $social->twitter = $request->twitter;

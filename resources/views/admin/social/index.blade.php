@@ -24,7 +24,7 @@
                     <h3 class="card-title">{{ __('main.title') }}</h3> <!-- Translated title -->
                 </div>
                 <!-- /.card-header -->
-                <form role="form" method="post" action="{{ route('admin.social_media.update', ['id' => $social->id]) }}" enctype="multipart/form-data">
+                <form role="form" method="post" action="{{ route('admin.social_media.update') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
 

@@ -443,7 +443,11 @@ return [
     'weight'=>'Weight',
     'add_new_weight'=>'Add New Weight',
     'events'=>"Events",
-    'add_new_event'=>'Add New Event'
+    'add_new_event'=>'Add New Event',
+    'parteners'=>'parteners',
+    'add_new_partener'=>'Add New Partener',
+    'pages'=>'Pages',
+    'add_new_page'=>'Add New Page'
 
 
 

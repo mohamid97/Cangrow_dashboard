@@ -447,7 +447,12 @@ return [
 
 
     'events'=>"الأحداث",
-    'add_new_event'=>'إضافة حدث جديد'
+    'add_new_event'=>'إضافة حدث جديد',
+
+    'parteners'=>'الشركاء',
+    'add_new_partener'=>'اضافة شريك جديد',
+    'pages'=>'الصفحات',
+    'add_new_page'=>'  إضافة صفحه حديده'
 
 
 

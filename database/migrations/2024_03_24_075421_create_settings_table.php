@@ -56,6 +56,8 @@ return new class extends Migration
             $table->string('brand')->nullable();
             $table->string('weight')->nullable();
             $table->string('event')->nullable();
+            $table->string('parteners')->nullable();
+            $table->string('pages')->nullable();
 
             $table->timestamps();
         });

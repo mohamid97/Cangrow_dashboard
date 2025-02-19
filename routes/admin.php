@@ -44,19 +44,21 @@ use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\WeightController;
 use App\Http\Controllers\Admin\PartenerController;
-
+use App\Http\Controllers\Admin\PageController;
 
 
 
 Route::get('/mig' , function (){
 
+
     // Run all migrations
-    Artisan::call('migrate:fresh');  // --force to run in production
+    // Artisan::call('migrate:fresh');
 
     // Run all seeders
-    Artisan::call('db:seed');  // --force to run in production
+//    Artisan::call('db:seed');  // --force to run in production
+//
+//    return "Migrations and seeders have been run successfully.";
 
-    return "Migrations and seeders have been run successfully.";
 });
 
 
@@ -240,7 +242,7 @@ Route::middleware(['checkIfAdmin' , 'DashboardLang'])->prefix('admin')->group(fu
     // start social media
     Route::prefix('social-media')->group(function (){
         Route::get('/' , [SocialMediaController::class , 'index'])->name('admin.social_media.index');
-        Route::post('/update/{id}' , [SocialMediaController::class , 'update'])->name('admin.social_media.update');
+        Route::post('/update' , [SocialMediaController::class , 'update'])->name('admin.social_media.update');
     });
 
 
@@ -594,6 +596,20 @@ Route::middleware(['checkIfAdmin' , 'DashboardLang'])->prefix('admin')->group(fu
         Route::get('/destroy/{id}' , [PartenerController::class , 'destroy'])->name('admin.parteners.destroy');
         Route::post('/update/{id}' , [PartenerController::class , 'update'])->name('admin.parteners.update');
     });
+
+
+    Route::prefix('pages')->group(function (){
+        Route::get('/' , [PageController::class , 'index'])->name('admin.pages.index');
+        Route::get('/create' , [PageController::class , 'create'])->name('admin.pages.add');
+        Route::get('/edit/{id}' , [PageController::class , 'edit'])->name('admin.pages.edit');
+        Route::post('/store' , [PageController::class , 'store'])->name('admin.pages.store');
+        Route::post('/update/{id}' , [PageController::class , 'update'])->name('admin.pages.update');
+        Route::get('/soft_delete/{id}' , [PageController::class , 'soft_delete'])->name('admin.pages.soft_delete');
+        Route::get('/restore/{id}' , [PageController::class , 'restore'])->name('admin.pages.restore');
+        Route::get('/destroy/{id}' , [PageController::class , 'destroy'])->name('admin.pages.destroy');
+    });
+
+
 
 
 
