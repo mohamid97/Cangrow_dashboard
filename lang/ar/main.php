@@ -452,7 +452,8 @@ return [
     'parteners'=>'الشركاء',
     'add_new_partener'=>'اضافة شريك جديد',
     'pages'=>'الصفحات',
-    'add_new_page'=>'  إضافة صفحه حديده'
+    'add_new_page'=>'  إضافة صفحه حديده',
+    "location"=>"الموقع"
 
 
 

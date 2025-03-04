@@ -183,6 +183,18 @@
                         </div>
                         <br>
 
+                        <div class="border p-3">
+
+                                <div class="form-group">
+                                    <label for="location">{{ __('main.location') }} </label> <!-- Translation for Meta Description -->
+                                    <textarea name="location" class="form-control">{{ ($contactus) && isset($contactus->location) ? $contactus->location : '' }}</textarea>
+                                    @error('location')
+                                    <div class="text-danger">{{ $errors->first('location') }}</div>
+                                    @enderror
+                                </div>
+
+                        </div>
+                        <br>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">{{ __('main.submit') }}</button> <!-- Translation for Submit -->
                         </div>

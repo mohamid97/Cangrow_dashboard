@@ -447,7 +447,8 @@ return [
     'parteners'=>'parteners',
     'add_new_partener'=>'Add New Partener',
     'pages'=>'Pages',
-    'add_new_page'=>'Add New Page'
+    'add_new_page'=>'Add New Page',
+    "location"=>"Location"
 
 
 

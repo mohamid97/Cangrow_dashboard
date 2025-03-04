@@ -27,6 +27,7 @@ class ContactResource extends JsonResource
             'phone1'=>$this->phone1,
             'phone2'=>$this->phone2,
             'phone3'=>$this->phone3,
+            "location"=>$this->location,
             'photo'=>$this->photo,
             'link_image'=>asset('/uploads/images/contactus/')
         ];
