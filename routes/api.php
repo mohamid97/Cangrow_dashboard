@@ -53,6 +53,7 @@ Route::middleware('checkLang')->group(function (){
 
 
     Route::prefix('category')->group(function (){
+        Route::get('/paginate' , [\App\Http\Controllers\Api\CategoryController::class , 'paginate']);
         Route::post('/get' , [\App\Http\Controllers\Api\CategoryController::class , 'get']);
         Route::post('/details' , [\App\Http\Controllers\Api\CategoryController::class , 'get_details']);
         Route::post('/categories/products' , [\App\Http\Controllers\Api\CategoryController::class , 'categories_with_products']);
@@ -121,6 +122,7 @@ Route::middleware('checkLang')->group(function (){
 
 
     Route::prefix('products')->group(function (){
+        Route::get('/paginate' , [\App\Http\Controllers\Api\ProductController::class , 'paginate']);
         Route::post('/' , [\App\Http\Controllers\Api\ProductController::class , 'get']);
         Route::post('/product_details' , [\App\Http\Controllers\Api\ProductController::class , 'get_product_details']);
         Route::post('/filter' , [\App\Http\Controllers\Api\ProductController::class , 'getFilteredProducts']);
@@ -148,6 +150,7 @@ Route::middleware('checkLang')->group(function (){
    });
     Route::prefix('blog')->group(function(){
 
+        Route::get('paginate' , [CmsController::class , 'paginate']);
         Route::post('/get' , [CmsController::class , 'get']);
         Route::post('/article_details' , [CmsController::class , 'get_cms_details']);
 

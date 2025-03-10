@@ -13,21 +13,32 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     use ResponseTrait;
+
+    public function paginate(){
+        $products = Product::whereHas('translations', function ($query) {
+            $query->where('locale', '=', app()->getLocale());
+        })->orderBy('updated_at' , 'desc')->paginate(15); // Change 25 to your desired number of items per page
+        return  $this->res(true ,'All Products' , 200 , [
+
+            'products' => ProductResource::collection($products),
+            'pagination' => [
+                'current_page' => $products->currentPage(),
+                'per_page' => $products->perPage(),
+//               'total' => $categories->total(),
+                'last_page' => $products->lastPage(),
+                'next_page_url' => $products->nextPageUrl(),
+                'prev_page_url' => $products->previousPageUrl(),
+            ],
+
+
+        ]);
+    }
     public function get()
     {
         $products = Product::whereHas('translations', function ($query) {
             $query->where('locale', '=', app()->getLocale());
-        })->paginate(25); // Change 25 to your desired number of items per page
-        return  $this->res(true ,'All Products' , 200 , [
-
-            'products' => ProductResource::collection($products),
-            'current_page' => $products->currentPage(),
-            'last_page' => $products->lastPage(),
-            'per_page' => $products->perPage(),
-            'total' => $products->total(),
-
-
-        ]);
+        })->orderBy('updated_at' , 'desc')->get();
+        return  $this->res(true ,'All Products' , 200 , ProductResource::collection($products));
     }
     public function get_product_details(Request $request) {
         $productdetails = Product::whereHas('translations', function ($query) use($request) {

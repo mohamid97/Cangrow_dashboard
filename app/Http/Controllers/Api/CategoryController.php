@@ -13,14 +13,39 @@ class CategoryController extends Controller
 {
     use ResponseTrait;
     //
+
+    public function paginate()
+    {
+        $categories = Category::whereHas('translations', function ($query) {
+            $query->where('locale', '=', app()->getLocale());
+        })->orderBy('updated_at' , 'desc')->paginate(15);
+
+        return $this->res(true, 'All Categories', 200, [
+            'categories' => CategoryResource::collection($categories),
+            'pagination' => [
+                'current_page' => $categories->currentPage(),
+                'per_page' => $categories->perPage(),
+//                'total' => $categories->total(),
+                'last_page' => $categories->lastPage(),
+                'next_page_url' => $categories->nextPageUrl(),
+                'prev_page_url' => $categories->previousPageUrl(),
+            ],
+        ]);
+
+    }
+
+
+
+
     public function get()
     {
         $categories = Category::whereHas('translations', function ($query) {
             $query->where('locale', '=', app()->getLocale());
-        })->get();
+        })->orderBy('updated_at' , 'desc')->get();
         return  $this->res(true ,'All Categories ' , 200 ,CategoryResource::collection($categories));
 
     }
+
 
     public function get_details(Request $request){
 
