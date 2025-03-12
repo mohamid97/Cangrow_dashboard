@@ -120,7 +120,7 @@ class CMSController extends Controller
                 $cms->{'meta_title:' . $lang->code} = $request->meta_title[$lang->code];
                 $cms->{'meta_des:' . $lang->code} = $request->meta_des[$lang->code];
             }
-
+            $cms->updated_at = now();
             $cms->save();
             DB::commit();
             Alert::success('Success', 'Your Article updated successfully!');
