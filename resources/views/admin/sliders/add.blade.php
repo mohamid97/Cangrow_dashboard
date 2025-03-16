@@ -15,7 +15,7 @@
                 </div>
             </div>
         </div><!-- /.container-fluid -->
-    </section>
+    </section>ش
 
     <section class="content">
         <div class="container-fluid">
@@ -82,6 +82,28 @@
                             <div class="text-danger">{{ $errors->first('link') }}</div>
                             @enderror
                         </div>
+
+                        <!-- Video Upload -->
+                        <div class="form-group">
+                            <label for="video">{{ __('main.video') }}</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input name="video" type="file" class="custom-file-input" id="video">
+                                    <label class="custom-file-label" for="video">{{ __('main.choose_video') }}</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">{{ __('main.upload') }}</span>
+                                </div>
+                            </div>
+                            @error('video')
+                            <div class="text-danger">{{ $errors->first('video') }}</div>
+                            @enderror
+                        </div>
+
+                        <br>
+
+
+
 
                         <div class="form-group">
                             <label for="image">{{ __('main.image') }}</label>

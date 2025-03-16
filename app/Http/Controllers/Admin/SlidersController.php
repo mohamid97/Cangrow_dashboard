@@ -60,11 +60,18 @@ class SlidersController extends Controller
             // Start the database transaction
             $image_name = $request->image->getClientOriginalName();
             $request->image->move(public_path('uploads/images/sliders'), $image_name);
+            $video_name = null;
+            if ($request->hasFile('video')) {
+                $video_name = $request->video->getClientOriginalName();
+                $request->video->move(public_path('uploads/videos/sliders'), $video_name);
+            }
+
             DB::beginTransaction();
             $slider = new Slider();
             $slider->image    =  $image_name;
             $slider->arrange  = $request->arrange;
             $slider->link     = $request->link;
+            $slider->video = $video_name;
             foreach ($this->langs as $lang) {
                 $slider->{'alt_image:'.$lang->code}  = $request->alt_image[$lang->code];
                 $slider->{'name:'.$lang->code}  = $request->name[$lang->code];
@@ -107,6 +114,18 @@ class SlidersController extends Controller
                 }
             }
 
+
+            if ($request->has('video')) {
+                $video_name = $request->video->getClientOriginalName();
+                $request->video->move(public_path('uploads/videos/sliders'), $video_name);
+
+                // Delete the old video if it exists
+                if (file_exists(public_path('uploads/videos/sliders/' . $slider->video))) {
+                    unlink(public_path('uploads/videos/sliders/' . $slider->video));
+                }
+            }
+
+
             DB::beginTransaction();
             foreach ($this->langs as $lang) {
                 $slider->{'name:'.$lang->code}       = $request->name[$lang->code];
@@ -120,7 +139,9 @@ class SlidersController extends Controller
 
             $slider->arrange = $request->arrange;
             $slider->link    = $request->link;
-
+            if (isset($video_name)) {
+                $slider->video = $video_name;
+            }
             $slider->save();
             DB::commit();
             Alert::success('success', 'Slider Updated Successfully !');

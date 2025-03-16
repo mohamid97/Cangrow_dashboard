@@ -58,6 +58,8 @@ return new class extends Migration
             $table->string('event')->nullable();
             $table->string('parteners')->nullable();
             $table->string('pages')->nullable();
+            $table->string('ourteam')->nullable();
+
 
             $table->timestamps();
         });

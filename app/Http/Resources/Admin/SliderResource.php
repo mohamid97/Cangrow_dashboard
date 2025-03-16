@@ -17,14 +17,16 @@ class SliderResource extends JsonResource
 
         return [
             'slider_name'  => $this->name,
-            'image_path'  => asset('/uploads/images/sliders/'),
-            'slider_image'=> $this->image,
+            'image_path'   => asset('/uploads/images/sliders/'),
+            'slider_image' => $this->image,
             'arrange'      => $this->arrange,
             'alt_image'    => $this->alt_image,
             'title_image'  => $this->title_image,
             'link'         => $this->link,
-            'small_des'    =>$this->small_des,
-            'des'          =>$this->des
+            'small_des'    => $this->small_des,
+            'des'          => $this->des,
+            'video'        => $this->video,
+            'video_link'   => asset('/uploads/videos/sliders')
         ];
     }
 }

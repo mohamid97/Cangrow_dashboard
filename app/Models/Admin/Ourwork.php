@@ -15,4 +15,13 @@ class Ourwork extends Model implements TranslatableContract
     public $translatedAttributes = ['des', 'name' ,'alt_image' , 'title_image' , 'meta_title' , 'meta_des'];
     public $translationForeignKey = 'ourwork_id';
     public $translationModel = 'App\Models\Admin\OurworkTranslation';
+
+
+    public function gallery(){
+        return $this->hasMany(OurworkGallery::class , 'our_work_id');
+    }
+
+
+
+
 }

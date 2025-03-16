@@ -45,7 +45,7 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\WeightController;
 use App\Http\Controllers\Admin\PartenerController;
 use App\Http\Controllers\Admin\PageController;
-
+use App\Http\Controllers\Admin\OurteamController;
 
 
 Route::get('/mig' , function (){
@@ -246,6 +246,20 @@ Route::middleware(['checkIfAdmin' , 'DashboardLang'])->prefix('admin')->group(fu
     });
 
 
+
+    Route::prefix('ourteam')->group(function(){
+        Route::get('/get' , [OurteamController::class , 'get'])->name('admin.ourteam.index');
+        Route::get('/edit/{id}' , [OurteamController::class , 'edit'])->name('admin.ourteam.edit');
+        Route::post('/update/{id}' , [OurteamController::class , 'update'])->name('admin.ourteam.update');
+        Route::get('/create' , [OurteamController::class , 'create'])->name('admin.ourteam.add');
+        Route::post('/store' , [OurteamController::class , 'store'])->name('admin.ourteam.store');
+        Route::get('/soft_delete/{id}' , [OurteamController::class , 'soft_delete'])->name('admin.ourteam.soft_delete');
+        Route::get('/restore/{id}' , [OurteamController::class , 'restore'])->name('admin.ourteam.restore');
+        Route::get('/destroy/{id}' , [OurteamController::class , 'destroy'])->name('admin.ourteam.destroy');
+    });
+
+
+
     // start our clients
     Route::prefix('our_clients')->group(function (){
        Route::get('/' , [OurClientController::class , 'index'])->name('admin.our_clients.index');
@@ -362,6 +376,10 @@ Route::middleware(['checkIfAdmin' , 'DashboardLang'])->prefix('admin')->group(fu
         Route::get('/soft_delete/{id}' , [OurworkController::class , 'soft_delete'])->name('admin.our_works.soft_delete');
         Route::get('/restore/{id}' , [OurworkController::class , 'restore'])->name('admin.our_works.restore');
         Route::get('/destroy/{id}' , [OurworkController::class , 'destroy'])->name('admin.our_works.destroy');
+        Route::get('/gallery/{id}' , [OurworkController::class , 'gallery'])->name('admin.our_works.gallery');
+        Route::get('/delete/{id}' , [OurworkController::class , 'delete_gallery'])->name('admin.our_works.delete_gallery');
+        Route::post('/store/{id}/gallery' , [OurworkController::class , 'store_gallery'])->name('admin.our_works.save_gallery');
+
     });
 
 

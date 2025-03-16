@@ -28,9 +28,10 @@ class OurworkResource extends JsonResource
             'title_image'=>$this->title_image,
             'icon'=>asset('/uploads/images/ourworks/' . $this->icon),
             'link'=>$this->link,
+            'gallery'=>$this->gallery
         ];
 
-        
+
 
     }
 }

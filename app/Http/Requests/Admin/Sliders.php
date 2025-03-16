@@ -32,7 +32,8 @@ class Sliders extends FormRequest
             'arrange'       =>'nullable|integer',
             'title_image.*' =>'nullable|string|max:255',
             'alt_image.*'   =>'nullable|string|max:255',
-            'link'          =>'nullable|string'
+            'link'          =>'nullable|string|max:255',
+            'video' => 'nullable|file|mimes:mp4,avi,mkv|max:50000',
 
 
         ];

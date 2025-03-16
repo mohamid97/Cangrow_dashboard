@@ -25,6 +25,7 @@ return new class extends Migration
             $table->text('meta_title')->nullable();
             $table->string('alt_image')->nullable();
             $table->string('title_image')->nullable();
+            $table->string('small_des')->nullable();
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
             $table->timestamps();
         });

@@ -98,10 +98,16 @@ Route::middleware('checkLang')->group(function (){
     });
 
 
-
+    Route::prefix('our-teams')->group(function(){
+        Route::post('/get' ,[\App\Http\Controllers\Api\OurteamController::class , 'get'] );
+    });
 
     Route::prefix('parteners')->group(function (){
         Route::get('/get'  , [\App\Http\Controllers\Api\PartenerController::class , 'get']);
+    });
+
+    Route::prefix('subscribe')->group(function (){
+        Route::post('store' , [\App\Http\Controllers\Api\SubscribeController::class , 'store'])->name('admin.subscribe.store');
     });
 
     Route::prefix('services')->group(function (){

@@ -57,6 +57,22 @@
                         </div>
                         <br>
 
+
+                        <div class="border p-3">
+                            @foreach($langs as $lang)
+                                <div class="form-group">
+                                    <label for="small_des">{{ __('main.small_des') }} ({{ $lang->name }})</label> <!-- Use translation key -->
+                                    <input type="text" name="small_des[{{$lang->code}}]" class="form-control" id="small_des" placeholder="{{ __('main.enter_small_des') }}" value="{{ old('small_des.' . $lang->code) }}"> <!-- Use translation key -->
+                                    @error('small_des.' . $lang->code)
+                                    <div class="text-danger">{{ $errors->first('small_des.' . $lang->code) }}</div>
+                                    @enderror
+                                </div>
+                            @endforeach
+                        </div>
+                        <br>
+
+
+
                         <div class="form-group">
                             <label for="price">{{ __('main.price') }}</label> <!-- Use translation key -->
                             <input type="text" name="price" class="form-control" id="price" placeholder="{{ __('main.enter_price') }}" value="{{ old('price') }}"> <!-- Use translation key -->

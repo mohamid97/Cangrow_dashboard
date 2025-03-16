@@ -73,6 +73,7 @@ class ServiceController extends Controller
                 $service->{'des:'.$lang->code}  = $request->des[$lang->code];
                 $service->{'meta_title:'.$lang->code}  = $request->meta_title[$lang->code];
                 $service->{'meta_des:'.$lang->code}  = $request->meta_des[$lang->code];
+                $service->{'small_des:'.$lang->code}  = $request->small_des[$lang->code];
                 $service->{'slug:'.$lang->code}  = $request->slug[$lang->code];
                 $service->{'alt_image:'.$lang->code}  = $request->alt_image[$lang->code];
                 $service->{'title_image:'.$lang->code}  = $request->title_image[$lang->code];

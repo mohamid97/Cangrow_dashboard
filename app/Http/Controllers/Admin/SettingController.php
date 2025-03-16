@@ -72,7 +72,9 @@ class SettingController extends Controller
                 $setting->event = $request->event;
                 $setting->parteners = $request->parteners;
                 $setting->pages = $request->pages;
-               foreach ($this->files as $file){
+                $setting->ourteam  = $request->ourteam;
+
+                foreach ($this->files as $file){
                   $image_name = $this->uploadFile($request , $file);
                    if($image_name){
                        if ( isset($setting) && ( $setting->{$file} != null ) && file_exists(public_path('uploads/images/setting/' . $setting->{$file})) ) {

@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CreateOurWork;
 use App\Http\Requests\Admin\EditOurWorkRequest;
+use App\Models\Admin\Gallary;
 use App\Models\Admin\Lang;
 use App\Models\Admin\Ourwork;
+use App\Models\Admin\OurworkGallery;
+use App\Models\Admin\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -180,4 +183,73 @@ class OurworkController extends Controller
         return redirect()->route('admin.our_works.index');
 
     }
+
+
+
+    public function gallery($id){
+        $our_work = Ourwork::with('gallery')->findOrFail($id);
+        return view('admin.ourworks.Gallary' , ['our_work'=>$our_work]);
+    }
+
+
+    public function delete_gallery($id){
+
+        try {
+            DB::beginTransaction();
+            $gallery = OurworkGallery::findOrFail($id);
+            if (isset($gallery->photo) &&file_exists(public_path('uploads/images/ourworks/' .$gallery->photo))) {
+                unlink(public_path('uploads/images/ourworks/' .$gallery->photo));
+            }
+            $gallery->delete();
+            DB::commit();
+            Alert::success('Success', 'Our Work Gallery Added Successfully !');
+            return redirect()->back();
+
+        }catch (\Exception $e){
+            DB::rollBack();
+            Alert::error('error', 'Tell The Programmer To solve Error');
+            return redirect()->route('admin.our_works.index');
+        }
+
+    }
+
+
+    public function store_gallery(Request $request, $id)
+    {
+        $our_work = Ourwork::findOrFail($id);
+
+        // Validate multiple images
+        $request->validate([
+            'photos.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+        ]);
+
+
+        // Check if the request has files
+        if ($request->has('photos')) {
+            foreach ($request->file('photos') as $photo) {
+                $image_name = time() . '_' . $photo->getClientOriginalName();
+                $photo->move(public_path('uploads/images/ourworks/'), $image_name);
+
+                // Save each image in the gallery table
+                $gallery = new OurworkGallery();
+                $gallery->our_work_id = $our_work->id;
+                $gallery->photo = $image_name;
+                $gallery->save();
+            }
+
+            Alert::success('Success', 'Our Work Gallery Added Successfully!');
+            return redirect()->back();
+        }
+
+        Alert::error('Error', 'No files uploaded. Please try again.');
+        return redirect()->back();
+    }
+
+
+
+
+
+
+
+
 }

@@ -11,7 +11,7 @@ use Astrotomic\Translatable\Translatable;
 class Service extends Model implements TranslatableContract
 {
     use HasFactory , SoftDeletes , Translatable;
-    public $translatedAttributes = ['name', 'des' , 'meta_title' , 'meta_des' , 'slug' , 'alt_image' , 'title_image'];
+    public $translatedAttributes = ['name', 'des' , 'meta_title' , 'meta_des' , 'slug' , 'alt_image' , 'title_image' , 'small_des'];
     protected $fillable = ['price' , 'star' , 'image'];
     public $translationForeignKey = 'service_id';
     public $translationModel = 'App\Models\Admin\ServiceTranslation';

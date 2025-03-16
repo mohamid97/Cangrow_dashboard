@@ -107,6 +107,10 @@
                                     <a href="{{ route('admin.our_works.destroy', ['id' => $work->id]) }}">
                                         <button class="btn btn-sm btn-danger"><i class="nav-icon fas fa-trash"></i> {{ __('main.remove') }}</button> <!-- Translated Remove -->
                                     </a>
+
+                                    <a href="{{ route('admin.our_works.gallery', ['id' => $work->id]) }}">
+                                        <button class="btn btn-sm btn-success"><i class="nav-icon fas fa-edit"></i> {{ __('main.show_gallery') }}</button>
+                                    </a>
                                 </td>
                             </tr>
                         @empty

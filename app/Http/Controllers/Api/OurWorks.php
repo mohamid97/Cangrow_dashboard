@@ -14,7 +14,7 @@ class OurWorks extends Controller
     //
     public function get()
     {
-        $our_works = Ourwork::all();
+        $our_works = Ourwork::with('gallery')->all();
         return  $this->res(true ,'Our Works or Projects' , 200 ,OurworkResource::collection($our_works));
 
     }

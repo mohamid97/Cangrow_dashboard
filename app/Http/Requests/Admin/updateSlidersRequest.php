@@ -30,6 +30,8 @@ class updateSlidersRequest extends FormRequest
             'small_des.*'=>'nullable|max:255',
             'des.*'=>'nullable|max:5000',
             'arrange'=>'nullable|integer',
+            'video' => 'nullable|file|mimes:mp4,avi,mkv|max:50000',
+
         ];
     }
 }

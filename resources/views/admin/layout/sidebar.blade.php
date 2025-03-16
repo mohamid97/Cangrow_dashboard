@@ -341,6 +341,44 @@
 
 
 
+                        @if($settings->ourteam )
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="fa fa-briefcase nav-icon"></i>
+                                    <p>
+
+                                        {{ __('main.our_team') }}
+
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+
+                                    <li class="nav-item">
+                                        <a href="{{route('admin.ourteam.index')}}" class="nav-link">
+                                            <i class="fa fa-briefcase nav-icon"></i>
+                                            <p>  {{ __('main.our_team') }}  </p>
+                                        </a>
+                                    </li>
+
+
+                                    <li class="nav-item">
+                                        <a href="{{route('admin.ourteam.add')}}" class="nav-link">
+                                            <i class="fa fa-plus  nav-icon"></i>
+                                            <p>  {{ __('main.add') }} </p>
+                                        </a>
+                                    </li>
+
+
+
+                                </ul>
+                            </li>
+                        @endif
+
+
+
+
+
                         @if($settings->pages)
                             <li class="nav-item has-treeview">
                                 <a href="#" class="nav-link">

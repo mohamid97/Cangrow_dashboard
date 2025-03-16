@@ -57,6 +57,20 @@
                             @endforeach
                         </div>
                         <br>
+                        <div class="border p-3">
+
+                            @foreach($langs as $lang)
+                                <div class="form-group">
+                                    <label for="small_des">{{ __('main.small_des') }} ({{ $lang->name }})</label>
+                                    <input type="text" name="small_des[{{$lang->code}}]" class="form-control" id="small_des" placeholder="{{ __('main.enter_small_des') }}" value="{{ isset($service->translate($lang->code)->small_des) ? $service->translate($lang->code)->small_des : '' }}">
+                                    @error('small_des.' . $lang->code)
+                                    <div class="text-danger">{{ $errors->first('small_des.' . $lang->code) }}</div>
+                                    @enderror
+                                </div>
+                            @endforeach
+                        </div>
+                        <br>
+
 
                         <div class="form-group">
                             <label for="price">{{ __('main.price') }} ({{ $lang->name }})</label>

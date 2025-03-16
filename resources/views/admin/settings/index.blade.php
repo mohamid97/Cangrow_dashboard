@@ -836,6 +836,26 @@
                         </div>
 
 
+                            <div class="form-group">
+
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <lable class="pointer" onclick="toggleCheckbox('ourteam1')">Show/Hide - our team</lable>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="custom-control custom-checkbox">
+                                            <input {{($settings->ourteam ?'checked':'')}} name="ourteam" type="checkbox" class="custom-control-input" id="ourteam1">
+                                            <label class="custom-control-label" for="ourteam1"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                @error('ourteam')
+                                <div class="text-danger">{{ $errors->first('ourteam') }}</div>
+                                @enderror
+                            </div>
+
+
+
 
 
                         <div class="form-group">

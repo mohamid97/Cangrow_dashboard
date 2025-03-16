@@ -107,6 +107,34 @@
                         </div>
 
                         <br>
+                        <div class="form-group">
+                            <label for="video">{{ __('main.video') }}</label> <!-- Translation key for "Video" -->
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input name="video" type="file" class="custom-file-input" id="video">
+                                    <label class="custom-file-label" for="video">{{ __('main.choose_video') }}</label> <!-- Translation key for "Choose Video" -->
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">{{ __('main.upload') }}</span> <!-- Translation key for "Upload" -->
+                                </div>
+                            </div>
+
+                            @if($slider->video)
+                                <video width="300" height="300" controls>
+                                    <source src="{{ asset('uploads/videos/sliders/'. $slider->video) }}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            @endif
+
+                            @error('video')
+                            <div class="text-danger">{{ $errors->first('video') }}</div>
+                            @enderror
+                        </div>
+
+
+                        <br>
+
+
                         <div class="border p-3">
 
                             @foreach($langs as $lang)

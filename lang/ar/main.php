@@ -453,7 +453,12 @@ return [
     'add_new_partener'=>'اضافة شريك جديد',
     'pages'=>'الصفحات',
     'add_new_page'=>'  إضافة صفحه حديده',
-    "location"=>"الموقع"
+    "location"=>"الموقع",
+    "choose_video"=>"اختر الفيديو",
+    "choose_photo"=>'اختر الصوره',
+    "our_team"=>'فريقنا',
+    "add_new_member"=>'إضافة عضو جديد',
+
 
 
 

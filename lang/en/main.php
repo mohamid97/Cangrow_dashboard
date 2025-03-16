@@ -448,7 +448,11 @@ return [
     'add_new_partener'=>'Add New Partener',
     'pages'=>'Pages',
     'add_new_page'=>'Add New Page',
-    "location"=>"Location"
+    "location"=>"Location",
+    "choose_video"=>"Choose Video",
+    "choose_photo"=>'Choose Photo',
+    "our_team"=>'Our Team',
+    "add_new_member"=>'Add New Member'
 
 
 
